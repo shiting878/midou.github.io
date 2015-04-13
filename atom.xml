@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-13T09:03:06.000Z</updated>
+  <updated>2015-04-13T16:14:12.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[代码高亮]]></title>
+    <link href="http://yoursite.com/2015/04/14/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
+    <id>http://yoursite.com/2015/04/14/代码高亮/</id>
+    <published>2015-04-13T16:11:38.000Z</published>
+    <updated>2015-04-13T16:14:12.000Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line">	<span class="keyword">include</span> <span class="constant">ActiveModel::Conversion</span></span><br><span class="line">	<span class="keyword">include</span> <span class="constant">ActiveModel::Validations</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class=]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[《大师》之傅斯年]]></title>
