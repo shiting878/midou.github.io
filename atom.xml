@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-15T17:01:15.000Z</updated>
+  <updated>2015-04-15T17:38:20.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[如何搭建独立的博客]]></title>
-    <link href="http://yoursite.com/2015/04/14/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2015/04/14/如何搭建独立的博客/</id>
-    <published>2015-04-14T15:07:44.000Z</published>
-    <updated>2015-04-15T17:01:15.000Z</updated>
+    <link href="http://yoursite.com/2015/04/16/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2015/04/16/如何搭建独立的博客/</id>
+    <published>2015-04-15T17:38:14.000Z</published>
+    <updated>2015-04-15T17:38:20.000Z</updated>
     <content type="html"><![CDATA[<h1 id="写在前面的话">写在前面的话</h1><p>上个星期的某一天早晨醒来，突然琢磨着想搭建一个自己的博客。什么是自己的博客呢？就是单独的、独立的、属于自己的博客，不是在新浪上写博客，也不是QQ空间里的发日志，当然更不是微信里的发条朋友圈状态。  </p>
 <p>在脑中迅速勾勒了一下，打算用PHP来写个简单的网页，和MySQL数据库连接，后台直接把写好的文章放进数据库，然后在网页上读取并显示出来，仅此而已。至于域名和服务器，都是打算在Godaddy上完成。  </p>
 <p>有了想法，便迅速起床，打开Mac查了起来。不一会儿，便发现有更好的方法——利用GitHub Pages和Hexo来搭建博客。</p>
@@ -154,7 +154,7 @@
 <h2 id="Mou">Mou</h2><p>.md文件为Markdown文件，推荐使用<a href="http://25.io/mou/" target="_blank" rel="external">Mou</a>进行编辑。</p>
 <p>以下为Mou的界面：<br><img src="http://qiniupicbed.qiniudn.com/upload/cfadf5c415ce53c5d8e966abbbc8bb45.png" alt=""></p>
 <h2 id="Markdown语法">Markdown语法</h2><p>Markdown是一种标记语言，其语法十分简洁。</p>
-<p>推荐阅读：</p>
+<p><strong>推荐阅读</strong>：</p>
 <ul>
 <li><p><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">献给写作者的 Markdown 新手指南</a></p>
 </li>
@@ -173,7 +173,20 @@
 <h2 id="发表新文章">发表新文章</h2><p>写完后，推送到服务器上，执行如下命令：</p>
 <figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">$ hexo <span class="keyword">d</span> -<span class="keyword">g</span></span><br></pre></td></tr></table></figure>
 <p><em><code>hexo d</code>是<code>hexo deploy</code>的缩写，<code>hexo d -g</code>是先生成静态页面然后将本地的博客相关文件部署到GitHub上。</em></p>
-<h1 id="404_NOT_FOUND页面">404 NOT FOUND页面</h1>]]></content>
+<hr>
+<h1 id="404_NOT_FOUND页面">404 NOT FOUND页面</h1><p>在本地创建404.html文件，直接在GitHub上创建新文件，将本地404.html的内容拷贝上去，即可。<em>（每次部署后，我都得手动在GitHub上重新创建404页面，目前还没有找到解决的好方法。）</em></p>
+<p><strong>推荐</strong>：</p>
+<ul>
+<li><p><a href="http://yibo.iyiyun.com/Home/Distribute/ad404/" target="_blank" rel="external">益云404公益</a></p>
+</li>
+<li><p><a href="http://www.qq.com/404/" target="_blank" rel="external">腾讯公益404</a></p>
+</li>
+</ul>
+<h1 id="其他小建议">其他小建议</h1><h2 id="图床">图床</h2><p>推荐使用<a href="http://qiniupicbed.sinaapp.com/" target="_blank" rel="external">七牛</a>（10G空间，免费）。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/f1bd54df30591e6dd4619706ce49dee4.png" alt=""></p>
+<h2 id="ico图标制作">ico图标制作</h2><p>推荐使用<a href="http://www.bitbug.net/" target="_blank" rel="external">比特虫</a>，图片转换很方便。</p>
+<p><strong>好啦，到这里整个独立博客就已步入正轨了。接下去就可以不断书写自己的故事了。<em>PS:</em> 已经连续第三天快要凌晨2点睡觉了，整理得乐在其中。哈哈，晚安！</strong></p>
+]]></content>
     <summary type="html">
     <![CDATA[<h1 id="写在前面的话">写在前面的话</h1><p>上个星期的某一天早晨醒来，突然琢磨着想搭建一个自己的博客。什么是自己的博客呢？就是单独的、独立的、属于自己的博客，不是在新浪上写博客，也不是QQ空间里的发日志，当然更不是微信里的发条朋友圈状态。  </p>
 <p>在脑中迅速勾勒了一下，打算用PHP来写个简单的网页，和MySQL数据库连接，后台直接把写好的文章放进数据库，然后在网页上读取并显示出来，仅此而已。至于域名和服务器，都是打算在Godaddy上完成。  </p>
