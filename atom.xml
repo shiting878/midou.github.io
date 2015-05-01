@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-01T09:06:50.000Z</updated>
+  <updated>2015-05-01T09:13:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/05/01/%E5%80%92%E9%80%80%E7%9A%84%E6%97%85%E8%A1%8C/"/>
     <id>http://yoursite.com/2015/05/01/倒退的旅行/</id>
     <published>2015-05-01T08:55:16.000Z</published>
-    <updated>2015-05-01T09:06:50.000Z</updated>
+    <updated>2015-05-01T09:13:38.000Z</updated>
     <content type="html"><![CDATA[<p>（一）</p>
 <p>我靠在座位上，仰头盯着车厢顶上淡黄色平行的两行灯，眼角的余光在不经意间，感受到两侧车窗外的一切物体都在向前迅速掠过。一切的岩石、树木、楼房、花草、电线塔，无一例外，都迅速向前、向前，消失不见。也许是前方有个黑洞，把这一切的物体都统统吞噬了吧。</p>
 <hr>
@@ -70,6 +70,14 @@
 <p>我一直在后退，快速地后退，沿着时光的脚印倒退，退回到我身后那片记忆中充满欢笑与爱的土地——故乡。</p>]]>
     
     </summary>
+    
+      <category term="倒退" scheme="http://yoursite.com/tags/%E5%80%92%E9%80%80/"/>
+    
+      <category term="旅行" scheme="http://yoursite.com/tags/%E6%97%85%E8%A1%8C/"/>
+    
+      <category term="时间" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4/"/>
+    
+      <category term="个人随笔" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
