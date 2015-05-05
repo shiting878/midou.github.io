@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-05T02:41:43.000Z</updated>
+  <updated>2015-05-05T02:44:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/05/05/%E3%80%8A%E8%BF%99%E4%B8%80%E7%94%9F%EF%BC%8C%E8%87%B3%E5%B0%91%E5%BD%93%E4%B8%80%E6%AC%A1%E5%82%BB%E7%93%9C%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2015/05/05/《这一生，至少当一次傻瓜》读书笔记/</id>
     <published>2015-05-04T16:27:07.000Z</published>
-    <updated>2015-05-05T02:41:43.000Z</updated>
+    <updated>2015-05-05T02:44:38.000Z</updated>
     <content type="html"><![CDATA[<p>五一在家读完了这本书，收获了许许多多的感动，也明白了每个人都有不为人知的艰苦奋斗历程。推荐大家阅读这本书，我把书中对我自己感触深的地方摘抄下来。</p>
 <p><strong>（一）</strong></p>
 <p>“我告诉他当个傻瓜就好，做做看就会知道，没有比当傻瓜更简单的事了。既然想死，那就在死之前当一次傻瓜。身为有过相同念头的过来人，我领悟到了一点：为一件事疯狂，总有一天可以从中找到答案。”</p>
@@ -138,6 +138,10 @@
 <p>问题是，木村为什么会疯狂地迷上这个痴人之梦？</p>]]>
     
     </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
     
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
