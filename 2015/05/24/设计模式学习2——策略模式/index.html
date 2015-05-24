@@ -20,7 +20,7 @@
 
 
 
-	<meta name="keywords" content="反思," />
+	<meta name="keywords" content="设计模式," />
 	
 
 
@@ -42,7 +42,7 @@
     })();
   </script>
 
-  <title> 感悟在思维碰撞间迸发 // 小默的博客 </title>
+  <title> 设计模式学习（二）——策略模式 // 小默的博客 </title>
 </head>
 
 <body>
@@ -144,7 +144,7 @@
           
           
             
-              感悟在思维碰撞间迸发
+              设计模式学习（二）——策略模式
             
           
         </h1>
@@ -152,14 +152,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-23
+          发表于 2015-05-24
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/个人随笔/">个人随笔</a>
+              <a href="/categories/技术分享/">技术分享</a>
 
               
               
@@ -172,8 +172,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/23/感悟在思维碰撞间迸发/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/23/感悟在思维碰撞间迸发/"></span>
+            <a href="/2015/05/24/设计模式学习2——策略模式/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/24/设计模式学习2——策略模式/"></span>
             </a>
           </span>
           
@@ -187,44 +187,49 @@
       
 
       
-        <p>今晚刚刚听完讲座《跨界·对话——人性迷思》，是新闻传播学院的黄合水教授主讲。</p>
-<p>黄教授的本科、硕士和博士都是学习心理学专业，他讲座中的许多观点是不错的。譬如他谈到人要活着、不死，就要满足三点：维衡，避害，度闲。这关联到人的三个需求：生理，安全，感动。这又对应地关联到第一、第二、第三产业。</p>
-<p>此话怎讲？具体来说，人要活着，首先要维持自身的平衡，吃喝拉撒睡，还有性，这些是最基本的生理需求，要满足这个需求，我们就有了农业，要种植粮食来维持生命。其次是避害，人要活着就要有基本的安全保障，保证自己不被老虎吃掉，不被洪水冲走等等，那么就有了制造业，我们生产工具，来对抗动物，来抵抗洪水。最后，当生理需求和安全需求都满足的情况下，人每天除了睡觉吃饭之外，还有很多的空闲时间，要怎么度过这些空闲时间便成了一个问题，于是有了服务业，我们可以从事商业活动，可以运输东西，可以玩手机，可以跳广场舞等等，我们可以做各种各样的事情来打发空闲的时间，我们可以运用各种感官来感受世界，接收信息，观察事物，来获得感动，得到对世界的认知和体悟。</p>
+        <h1 id="策略模式定义">策略模式定义</h1><p><strong>策略模式（Strategy Pattern）</strong>中定义一系列算法，并将每一个算法封装起来，使它们可以相互替换，策略模式让算法独立于使用它的客户而变化。</p>
+<p>有许多算法可以实现同一功能，比如存在多种搜索算法、排序算法等。如果将这些算法硬编码在程序中，则会导致系统变得庞大而难以维护，在增加新的算法或改变现有算法时也将变得十分困难。为了解决类似问题，可以定义一些独立的类来封装不同的算法，每一个封装算法的类成为<strong>策略</strong>。</p>
 <a id="more"></a>
-<p>这让我们容易想到马斯洛的需求层次理论。他在理论中将人类的需求从低到高分为五层：生理上的需求，安全上的需求，情感和归属的需求，尊重的需求，自我实现的需求。那么黄教授所讲与马斯洛需求层次有何关系？</p>
-<p>关系有如下几点：</p>
+<p>策略模式把算法的责任和算法本身分割开，委派给不同的对象管理。策略模式使用起来很方便，如需要提供一个灵活的网站搜索工具，可以有多种搜索策略，并且还会在以后根据实际情况增加新的搜索方式，就可以使用策略模式，创建一个搜索管理器用于和外部环境代码交互，在外部代码中针对抽象层编程，从而使得新的搜索方式出现时外部代码无需做任何改变，同时使得搜索算法的重用变得更为灵活。</p>
+<hr>
+<h1 id="策略模式结构图">策略模式结构图</h1><p><img src="http://qiniupicbed.qiniudn.com/upload/02b84892ab605bcac6b4e13379d23514.png" alt=""></p>
+<p>图中：</p>
 <ul>
-<li><p>爱：帮助他人满足三大需要（生理，安全，感动）；</p>
+<li><p>Context表示环境类，它通过ConcreteStrategy对象配置其执行环境，并维护一个对Strategy的引用实例，可以定义一个接口供Strategy存取其数据；</p>
 </li>
-<li><p>归属：共同满足三大需要；</p>
+<li><p>Strategy表示抽象策略类，它定义一个公共的接口给所有支持的算法，Context可以使用这个接口调用ConcreteStrategy定义的算法；</p>
 </li>
-<li><p>尊重：确认相互帮助能力；</p>
-</li>
-<li><p>自我实现：不受生理和安全需要的束缚。</p>
+<li><p>ConcreteStrategyA和ConcreteStrategyB表示具体策略类，它们实现Strategy接口定义的算法。</p>
 </li>
 </ul>
-<p>举例来说，第一，爱就是帮助他人满足三大需要。比如母亲爱孩子，当孩子饿了的时候母亲就会喂他吃东西，当孩子遇到危险时母亲会挺身而出保护他，当孩子对某些玩具感兴趣时母亲会拿来给他玩。</p>
-<p>第二，归属就是共同满足三大需要。人都是活在群体之中的，由起初的家庭，一家人生活在一起，到后来的和社会上他人建立起的群体，比如军人加入了部队，战友之间在危难时相互帮助，有粮食大家一起吃，这建立起的深厚情谊是坚不可摧的。这就是人的归属感。</p>
-<p>第三，尊重就是确认相互帮助能力。我们能给别人提供力所能及的帮助，他人也有能在某个时候给我们以特定帮助的能力，这样人与人之间就产生了尊重。</p>
-<p>第四，自我实现是在不受生理和安全需要束缚的情况下会显现出来的。即我们在空闲的时候，可以朝着自己感兴趣的方向，做自己想做的事，读自己想读的书，感受自己希望感受到世界的角度，把时间花在修炼自我、提升自我的境界上。</p>
-<p>黄教授还讲到，我们看到的追逐金钱的企业家，崇尚权力的政治家，名声鹊起的科学家和艺术家，内心博爱的慈善家，其实都好像是一棵大树的叶子，而其根、本仍可以归结到生理、安全和感动上来。</p>
-<p>后来的提问互动环节，有两个同学的问题提得很好，可是我对黄教授的回答不敢恭维，也许是人言言殊吧，每个人都可以有自己的观点和想法，并保留自己的意见。其中一个同学和黄教授的对话中说到，一个人是不是真的能够出于纯粹地做出善行。黄教授认为这在现实生活中是基本不存在的，一个人付出的时候，总是怀有某种期待的，希望下次自己处于同样情境的时候也能得到对方或者他人同样的回报。而提问的学生认为，人是可以在有些时候纯粹付出的。比如看到自己的家人溺水了，即使自己不会游泳，也很可能在当下不作思考、立即跳入水中救人，而黄教授认为现实生活中，不会游泳的人基本是不可能跳入水中去救人的，只有会游泳的人才会跳下去。</p>
-<p>黄教授的这个观点以及之后对几个问题的说法，当时引起了我内心极大的抵触和不悦，我甚至差点拎包起身走人。按照以往，我很可能就这么做了，可是这次，我没有。我安静地坐着，仿佛有另一个自己悬在身后的空间里注视着座椅上的自己。座位上的我，外表平静，内心却有两股力量在较劲。一股力量在说：“这样的观点我绝对不能接受，我的理解已经超越了他，没必要再听下去了，走吧。”另一股力量在说：“安静下来，听人家把话说完，也许听完会有不一样的看法。试着去包容，每个人的观点不同，当相互抵触的时候，多一些耐心和置换角度的理解，去聆听，去感受是什么让你这样暴躁无法容忍。”</p>
-<p>以往，我通常都没有感受到那微弱的后一种力量，而是在前一股力量的怂恿下，急急起身，匆匆离去，还偶尔伴随摇头和叹息。而这一次，我感到后一股力量明显强大起来，镇压住了内心的狂躁不安，让我平静地听取逆耳之言、相左之见。</p>
-<p>我觉得，这是我今晚听这个讲座最大的收获，这是我的一次成长。我清楚地意识到，我不可能同意他人所有的观点，我要学会在抗拒别人观点的时候，去包容，在听到符合自己心意的观点时，辩证再思考。我要学着听取众家之言，博采众长。</p>
-<p>如果我没有听今晚的讲座，没有这样的思维碰撞、观点对冲和自我觉察，我可能会把时间用来看书或者做其他事情，那么我就不大可能会有这样的感悟和收获，虽然我可能会因此得到其他的收获。机会成本这个东西，不提也罢，生活是单程旅行，总在计较得失，怕是忽视了许多沿途的风景。“The journey is reward.” 我喜欢这句话，实实在在，活在当下。</p>
-<p>末了，不得不提到，今晚的主持人是很有才的，他说的几句话和提出的几个问题倒是让我颇感意味深长，值得思索：</p>
-<blockquote>
+<hr>
+<h1 id="策略模式实例——电影票打折">策略模式实例——电影票打折</h1><h2 id="实例说明">实例说明</h2><p>某电影院售票系统为不同类型的用户提供了不同的打折方式（Discount），学生凭学生证可享受8折优惠（StudentDiscount），儿童可享受减免10元的优惠（ChildrenDiscount），VIP用户除享受半价优惠外还可以进行积分（VIPDiscount）。使用策略模式设计该系统，结合场景绘制相应的类图并编码实现。</p>
+<h2 id="实例类图">实例类图</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/1280a7eb67bf6efcc4fc15899c6f8e0d.png" alt=""></p>
+<p>实例类图中与策略模式结构图对应的类主要有：</p>
 <ul>
-<li><p>人什么时候感到孤独？从传播学角度看，当一个人想传播却没有传播对象的时候，往往感到孤独。</p>
+<li><p>MovieTicket为环境类；</p>
 </li>
-<li><p>人不是害怕死亡，是害怕死亡感<em>（黄教授的死亡观）</em>；正如女生不是希望安全，而是要安全感。</p>
+<li><p>Discount为抽象策略类；</p>
 </li>
-<li><p>你开着一列火车，此时必定要发生侧翻，前方左侧有三个人，右侧有五个人，你觉得该往哪边翻？为了保住五个人的性命，压死左侧的三个人吗？如果左边的三个人是院士，右边的五个人是农民，你该往哪边翻？左边的三个人是能解决人类生活中的世界性问题的科学家，右边五个是妇女儿童，该往哪边翻？左边三个是身家过亿的商界大亨，右边五个是普普通通的人，该往哪边翻？</p>
+<li><p>StudentDiscount、ChildrenDiscount和VIPDiscount为具体策略类。</p>
 </li>
 </ul>
-</blockquote>
-<p>最后这个问题，让我想起曾经看过的哈佛大学公开课《公正，该如何是好？》，里面的第一节课也有谈及类似问题，值得思索考究。上面的中间一句话，嗯，我觉得是时候看看那本摆在桌上落满灰尘的《耶鲁大学公开课：死亡》了！</p>
+<h2 id="实例代码">实例代码</h2><p>MovieTicket.java:</p>
+<figure class="highlight aspectj"><table><tr><td class="code"><pre><span class="line"><span class="comment">//电影票类：环境类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieTicket</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">	<span class="keyword">private</span> Discount discount;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.price = price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setDiscount</span><span class="params">(Discount discount)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.discount = discount;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">return</span> discount.<span class="title">calculate</span><span class="params">(<span class="keyword">this</span>.price)</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Discount.java:</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//折扣类：抽象策略类</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title">Discount</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> price)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>StudentDiscount.java:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//学生折扣类：具体策略类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentDiscount</span> <span class="keyword">implements</span> <span class="title">Discount</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> price)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.out.print(<span class="string">"学生--&gt;"</span>);</span><br><span class="line">		<span class="keyword">return</span> price * <span class="number">0.8</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ChildrenDiscount.java:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//儿童折扣类：具体策略类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildrenDiscount</span> <span class="keyword">implements</span> <span class="title">Discount</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> price)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.out.print(<span class="string">"儿童--&gt;"</span>);</span><br><span class="line">		<span class="keyword">return</span> price - <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>VIPDiscount.java:</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//VIP用户折扣类：具体策略类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">VIPDiscount</span> <span class="title">implements</span> <span class="title">Discount</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> price)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.print(<span class="string">"VIP用户--&gt;"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"增加积分！"</span>);</span><br><span class="line">		<span class="keyword">return</span> price * <span class="number">0.5</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Client.java:</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//客户端测试类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Client</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">double</span> price = <span class="number">50.00</span>;</span><br><span class="line">		MovieTicket mt = <span class="keyword">new</span> MovieTicket();</span><br><span class="line">		mt.setPrice(price);</span><br><span class="line">		<span class="keyword">double</span> currentPrice;</span><br><span class="line">		</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"电影票原价为："</span> + price + <span class="string">"元"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"---------------------------------"</span>);</span><br><span class="line">			</span><br><span class="line">		Discount obj;</span><br><span class="line">		obj = <span class="keyword">new</span> StudentDiscount();  <span class="comment">//可通过配置文件实现</span></span><br><span class="line">		mt.setDiscount(obj);</span><br><span class="line">		currentPrice = mt.getPrice();</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"折后票价为："</span> + currentPrice + <span class="string">"元"</span>);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"---------------------------------"</span>);</span><br><span class="line">		obj = <span class="keyword">new</span> VIPDiscount();</span><br><span class="line">		mt.setDiscount(obj);</span><br><span class="line">		currentPrice = mt.getPrice();</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"折后票价为"</span> + currentPrice + <span class="string">"元"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运行结果">运行结果</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/bbe5d5d6c72a35b4d6d559e17b420cc4.png" alt=""></p>
+<h2 id="附加描述">附加描述</h2><p>在本实例中，可以通过配置文件来存储具体策略类的类名，再使用反射机制生产对象，如果需要更换具体策略或使用新增加的具体策略，无需修改任何源代码（包括客户端代码），只需修改配置文件即可，完全符合开闭原则。</p>
+<hr>
+<h1 id="后话">后话</h1><p>学习设计模式，是一场修行。</p>
 
       
     </div>
@@ -233,7 +238,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/反思/"> #反思 </a>
+            <a href="/tags/设计模式/"> #设计模式 </a>
           
         </div>
       
@@ -242,13 +247,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/24/《异类》读书笔记整理/">《异类》读书笔记整理</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/22/倚窗晨读/">倚窗晨读</a>
+              <a href="/2015/05/23/滑稽的大雨/">滑稽的大雨</a>
             
           </div>
         </div>
@@ -264,8 +267,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/04/23/感悟在思维碰撞间迸发/"
-               data-title="感悟在思维碰撞间迸发" data-url="http://yoursite.com/2015/04/23/感悟在思维碰撞间迸发/">
+          <div class="ds-thread" data-thread-key="2015/05/24/设计模式学习2——策略模式/"
+               data-title="设计模式学习（二）——策略模式" data-url="http://yoursite.com/2015/05/24/设计模式学习2——策略模式/">
           </div>
         
       </div>
@@ -370,7 +373,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式定义"><span class="nav-number">1.</span> <span class="nav-text">策略模式定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式结构图"><span class="nav-number">2.</span> <span class="nav-text">策略模式结构图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式实例——电影票打折"><span class="nav-number">3.</span> <span class="nav-text">策略模式实例——电影票打折</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例说明"><span class="nav-number">3.1.</span> <span class="nav-text">实例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例类图"><span class="nav-number">3.2.</span> <span class="nav-text">实例类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例代码"><span class="nav-number">3.3.</span> <span class="nav-text">实例代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.4.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加描述"><span class="nav-number">3.5.</span> <span class="nav-text">附加描述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后话"><span class="nav-number">4.</span> <span class="nav-text">后话</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
