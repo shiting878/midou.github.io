@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-25T15:48:27.000Z</updated>
+  <updated>2015-05-25T15:52:36.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/05/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A09%E2%80%94%E2%80%94%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2015/05/25/设计模式学习9——职责链模式/</id>
     <published>2015-05-25T12:07:52.000Z</published>
-    <updated>2015-05-25T15:48:27.000Z</updated>
+    <updated>2015-05-25T15:52:36.000Z</updated>
     <content type="html"><![CDATA[<h1 id="职责链模式定义">职责链模式定义</h1><p><strong>职责链模式（Chain of Responsibility Pattern）</strong>避免请求发送者和接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
 <p>在客户端创建好传递链之后，发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织链和分配责任。</p>
 <p>值得注意的是，如果建链不当，可能会造成循环调用，将导致系统陷入死循环。</p>
@@ -61,6 +61,7 @@
 <h2 id="附加描述">附加描述</h2><p>在本实例中，客户端测试类创建了职责链，当向jContext对象传递查询关键字“UML类图绘制疑惑”时，jContext首先处理该关键字，如果不能处理则转发请求给它的后继者，直到链上某一个对象能够处理该关键字请求，对于该关键字，请求转发顺序为jContext-&gt;sContext-&gt;uContext，最后由uContext对象处理该请求。职责链由客户端创建，因此请求的传递顺序也由客户端来确定。</p>
 <hr>
 <h1 id="后话">后话</h1><p>职责链模式就好像流水线加工一样，对于一个客户请求，在线上不断传递下去，看线上哪个工人能处理好这个请求。</p>
+<p>这个模式的实例代码很精辟，看完之后，捋顺了代码流程，不禁赞叹！</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="职责链模式定义">职责链模式定义</h1><p><strong>职责链模式（Chain of Responsibility Pattern）</strong>避免请求发送者和接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
