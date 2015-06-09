@@ -20,7 +20,7 @@
 
 
 
-	<meta name="keywords" content="生活,看见," />
+	<meta name="keywords" content="R," />
 	
 
 
@@ -42,7 +42,7 @@
     })();
   </script>
 
-  <title> 顶澳仔小广场卖豆花的老爷爷 // 小默的博客 </title>
+  <title> 简洁高效的R——内建函数的使用 // 小默的博客 </title>
 </head>
 
 <body>
@@ -144,7 +144,7 @@
           
           
             
-              顶澳仔小广场卖豆花的老爷爷
+              简洁高效的R——内建函数的使用
             
           
         </h1>
@@ -152,14 +152,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-28
+          发表于 2015-06-09
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/街头巷尾/">街头巷尾</a>
+              <a href="/categories/技术分享/">技术分享</a>
 
               
               
@@ -172,8 +172,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/28/顶澳仔小广场卖豆花的老爷爷/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/28/顶澳仔小广场卖豆花的老爷爷/"></span>
+            <a href="/2015/06/09/简洁高效的R——内建函数的使用/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/09/简洁高效的R——内建函数的使用/"></span>
             </a>
           </span>
           
@@ -187,15 +187,11 @@
       
 
       
-        <p>下午六点多去顶澳仔小广场，接即将跳舞结束的梦梦。</p>
-<p>傍晚的小广场，往来的行人络绎不绝。在灯火辉煌的街边小店和众人之中，我看到了一个坐在石墩上的老爷爷，他的背微微弓起，面前是一辆三轮车，拖斗里放着一桶做好的豆花，车上立着一个大牌子，写着“客家豆花”。</p>
-<p>我看到有人来买豆花，老爷爷起身，背弓得很厉害，深深弯着腰，用纸杯打着豆花，加了点糖，盖好盖子，递给客人，那样子真是礼貌极了。</p>
+        <p>今天看到一个很好的<a href="https://github.com/rdpeng/practice_assignment/blob/master/practice_assignment.rmd" target="_blank" rel="external">tutorial</a>，学习了之后，精简地写出了以下的两个function。前一个是从基本思想出发来写，后一个是对前一个的优化版本。后者在处理数量很大的CSV文件操作时会显出优势。</p>
 <a id="more"></a>
-<p>我开始以为他是驼背，后来发现当客人走远之后，老爷爷站直了身体，半晌，又坐回石墩上，等待下一个来买豆花的客人。</p>
-<p>后来梦梦从瑜伽馆出来，说想喝一杯豆花，于是我们一人买了一杯。买的时候，我特地再观察了一遍，老爷爷还是一样的毕恭毕敬、动作熟练地打着豆花。不同只是，我这次站的角度和距离更靠近他，看得更加真切。</p>
-<p>我看到的是卖豆花的老爷爷，是流落街头仍然在验证哥德巴赫猜想的陈景润，是即使双耳失聪仍然在钢琴旁创作的贝多芬。</p>
-<p>今晚，我的脑中时不时就闪过老爷爷弯腰给客人打豆花的样子。我不知道，这是被生活重担压弯的腰，还是本着顾客至上而毕恭毕敬地弯腰。也许都有，也许都不是，毕竟我不是他，怎知他经历了怎样的经历，又有怎样的故事呢。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/5db669838300bbf7ff79dadfb15a339b.png" alt=""></p>
+<p>weightmedian.R:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">weightmedian &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">directory</span>, <span class="title">day</span>) &#123;</span></span><br><span class="line">        files_full &lt;- list.<span class="built_in">files</span>(<span class="built_in">directory</span>, full.names = <span class="constant">TRUE</span>)</span><br><span class="line">        dat &lt;- data.frame()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i <span class="operator">in</span> <span class="number">1</span>:<span class="number">5</span>) &#123;</span><br><span class="line">                dat &lt;- rbind(dat, <span class="built_in">read</span>.csv(files_full[i]))</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        dat_day &lt;- dat[which(dat[, <span class="string">"Day"</span>] == day), ]</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">median</span>(dat_day$Weight, na.rm = <span class="constant">TRUE</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">optiweightmedian &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">directory</span>, <span class="title">day</span>) &#123;</span></span><br><span class="line">        files_full &lt;- list.<span class="built_in">files</span>(<span class="built_in">directory</span>, full.names = <span class="constant">TRUE</span>)</span><br><span class="line">        <span class="comment">#tmp &lt;- vector(mode = "list", length = length(files_full))</span></span><br><span class="line">        tmp &lt;- lapply(files_full, <span class="built_in">read</span>.csv)</span><br><span class="line">        dat &lt;- <span class="built_in">do</span>.call(rbind, tmp)</span><br><span class="line">        dat_day &lt;- dat[which(dat[, <span class="string">"Day"</span>] == day), ]</span><br><span class="line">        <span class="built_in">median</span>(dat_day$Weight, na.rm = <span class="constant">TRUE</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码虽短，却足以显示出R语言的简洁高效！</p>
 
       
     </div>
@@ -204,9 +200,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活/"> #生活 </a>
-          
-            <a href="/tags/看见/"> #看见 </a>
+            <a href="/tags/R/"> #R </a>
           
         </div>
       
@@ -215,13 +209,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/29/摘抄小诗一首/">摘抄小诗一首</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/26/没有任何借口/">没有任何借口</a>
+              <a href="/2015/06/09/迈克尔·彭博哈佛大学2014毕业典礼演讲/">迈克尔·彭博哈佛大学2014毕业典礼演讲</a>
             
           </div>
         </div>
@@ -237,8 +229,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/04/28/顶澳仔小广场卖豆花的老爷爷/"
-               data-title="顶澳仔小广场卖豆花的老爷爷" data-url="http://yoursite.com/2015/04/28/顶澳仔小广场卖豆花的老爷爷/">
+          <div class="ds-thread" data-thread-key="2015/06/09/简洁高效的R——内建函数的使用/"
+               data-title="简洁高效的R——内建函数的使用" data-url="http://yoursite.com/2015/06/09/简洁高效的R——内建函数的使用/">
           </div>
         
       </div>
