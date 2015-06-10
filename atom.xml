@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-06-09T15:11:10.000Z</updated>
+  <updated>2015-06-10T06:39:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[R Programming Assignment 1: Air Pollution]]></title>
+    <link href="http://yoursite.com/2015/06/10/R-Programming-Assignment-1/"/>
+    <id>http://yoursite.com/2015/06/10/R-Programming-Assignment-1/</id>
+    <published>2015-06-10T05:45:46.000Z</published>
+    <updated>2015-06-10T06:39:52.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Introduction">Introduction</h2><p>For this first programming assignment you will write three functions that are meant to interact with dataset that accompanies this assignment. The dataset is contained in a zip file <strong>specdata.zip</strong> that you can download from the Coursera web site. </p>
+<h2 id="Data">Data</h2><p>The zip file containing the data can be downloaded here:</p>
+<ul>
+<li><a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2Fspecdata.zip" target="_blank" rel="external">specdata.zip</a> [2.4MB]</li>
+</ul>
+<p>The zip file contains 332 comma-separated-value (CSV) files containing pollution monitoring data for fine particulate matter (PM) air pollution at 332 locations in the United States. Each file contains data from a single monitor and the ID number for each monitor is contained in the file name. For example, data for monitor 200 is contained in the file “200.csv”. Each file contains three variables:</p>
+<ul>
+<li><p>Date: the date of the observation in YYYY-MM-DD format (year-month-day)</p>
+</li>
+<li><p>sulfate: the level of sulfate PM in the air on that date (measured in micrograms per cubic meter)</p>
+</li>
+<li><p>nitrate: the level of nitrate PM in the air on that date (measured in micrograms per cubic meter)</p>
+</li>
+</ul>
+<p>For this programming assignment you will need to unzip this file and create the directory ‘specdata’. Once you have unzipped the zip file, <strong>do not</strong> make any modifications to the files in the ‘specdata’ directory. In each file you’ll notice that there are many days where either sulfate or nitrate (or both) are missing (coded as NA). This is common with air pollution monitoring data in the United States.</p>
+<a id="more"></a>
+<h2 id="Part_1">Part 1</h2><p>Write a function named ‘pollutantmean’ that calculates the mean of a pollutant (sulfate or nitrate) across a specified list of monitors. The function ‘pollutantmean’ takes three arguments: ‘directory’, ‘pollutant’, and ‘id’. Given a vector monitor ID numbers, ‘pollutantmean’ reads that monitors’ particulate matter data from the directory specified in the ‘directory’ argument and returns the mean of the pollutant across all of the monitors, ignoring any missing values coded as NA. A prototype of the function is as follows</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">pollutantmean &lt;- <span class="function"><span class="keyword">function</span><span class="params">(directory, pollutant, id = <span class="number">1</span>:<span class="number">332</span>)</span> </span>&#123;</span><br><span class="line">        <span class="comment">## 'directory' is a character vector of length 1 indicating</span></span><br><span class="line">        <span class="comment">## the location of the CSV files</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 'pollutant' is a character vector of length 1 indicating</span></span><br><span class="line">        <span class="comment">## the name of the pollutant for which we will calculate the</span></span><br><span class="line">        <span class="comment">## mean; either "sulfate" or "nitrate".</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 'id' is an integer vector indicating the monitor ID numbers</span></span><br><span class="line">        <span class="comment">## to be used</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## Return the mean of the pollutant across all monitors list</span></span><br><span class="line">        <span class="comment">## in the 'id' vector (ignoring NA values)</span></span><br><span class="line">        <span class="comment">## NOTE: Do not round the result!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can see some <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdoc%2Fpollutantmean-demo.html" target="_blank" rel="external">example output from this function</a>. The function that you write should be able to match this output. Please save your code to a file named <strong>pollutantmean.R</strong>.</p>
+<h2 id="Part_2">Part 2</h2><p>Write a function that reads a directory full of files and reports the number of completely observed cases in each data file. The function should return a data frame where the first column is the name of the file and the second column is the number of complete cases. A prototype of this function follows</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">complete &lt;- <span class="function"><span class="keyword">function</span><span class="params">(directory, id = <span class="number">1</span>:<span class="number">332</span>)</span> </span>&#123;</span><br><span class="line">        <span class="comment">## 'directory' is a character vector of length 1 indicating</span></span><br><span class="line">        <span class="comment">## the location of the CSV files</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 'id' is an integer vector indicating the monitor ID numbers</span></span><br><span class="line">        <span class="comment">## to be used</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">## Return a data frame of the form:</span></span><br><span class="line">        <span class="comment">## id nobs</span></span><br><span class="line">        <span class="comment">## 1  117</span></span><br><span class="line">        <span class="comment">## 2  1041</span></span><br><span class="line">        <span class="comment">## ...</span></span><br><span class="line">        <span class="comment">## where 'id' is the monitor ID number and 'nobs' is the</span></span><br><span class="line">        <span class="comment">## number of complete cases</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can see some <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdoc%2Fcomplete-demo.html" target="_blank" rel="external">example output from this function</a>. The function that you write should be able to match this output. Please save your code to a file named <strong>complete.R</strong>. To run the submit script for this part, make sure your working directory has the file <strong>complete.R</strong> in it.</p>
+<h2 id="Part_3">Part 3</h2><p>Write a function that takes a directory of data files and a threshold for complete cases and calculates the correlation between sulfate and nitrate for monitor locations where the number of completely observed cases (on all variables) is greater than the threshold. The function should return a vector of correlations for the monitors that meet the threshold requirement. If no monitors meet the threshold requirement, then the function should return a numeric vector of length 0. A prototype of this function follows</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">corr &lt;- <span class="function"><span class="keyword">function</span><span class="params">(directory, threshold = <span class="number">0</span>)</span> </span>&#123;</span><br><span class="line">        <span class="comment">## 'directory' is a character vector of length 1 indicating</span></span><br><span class="line">        <span class="comment">## the location of the CSV files</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 'threshold' is a numeric vector of length 1 indicating the</span></span><br><span class="line">        <span class="comment">## number of completely observed observations (on all</span></span><br><span class="line">        <span class="comment">## variables) required to compute the correlation between</span></span><br><span class="line">        <span class="comment">## nitrate and sulfate; the default is 0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## Return a numeric vector of correlations</span></span><br><span class="line">        <span class="comment">## NOTE: Do not round the result!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For this function you will need to use the ‘cor’ function in R which calculates the correlation between two vectors. Please read the help page for this function via ‘?cor’ and make sure that you know how to use it.<br>You can see some <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdoc%2Fcorr-demo.html" target="_blank" rel="external">example output from this function</a>. The function that you write should be able to match this output. Please save your code to a file named <strong>corr.R</strong>. To run the submit script for this part, make sure your working directory has the file <strong>corr.R</strong> in it.</p>
+<hr>
+<h2 id="My_Solution">My Solution</h2><h3 id="Part_1-1">Part 1</h3><p>pollutantmean.R:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">pollutantmean &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">directory</span>, <span class="title">pollutant</span>, <span class="title">id</span> = <span class="title">1</span>:<span class="title">332</span>) &#123;</span></span><br><span class="line">        files_full &lt;- list.<span class="built_in">files</span>(<span class="built_in">directory</span>, full.names = <span class="constant">TRUE</span>) </span><br><span class="line">        </span><br><span class="line">        dat &lt;- data.frame()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i <span class="operator">in</span> id) &#123;</span><br><span class="line">                dat &lt;- rbind(dat, <span class="built_in">read</span>.csv(files_full[i]))</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        mean(dat[, pollutant], na.rm = <span class="constant">TRUE</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Part_2-1">Part 2</h3><p>complete.R:</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="title">complete</span> &lt;- function(directory, id = <span class="number">1</span>:<span class="number">332</span>) &#123;</span><br><span class="line">        files_full &lt;- list.files(directory, full.names = <span class="type">TRUE</span>)</span><br><span class="line">        dat &lt;- <span class="typedef"><span class="keyword">data</span>.frame<span class="container">()</span></span></span><br><span class="line">        </span><br><span class="line">        for (i <span class="keyword">in</span> id) &#123;</span><br><span class="line">                moni_i &lt;- read.csv(files_full[i])</span><br><span class="line">                nobs &lt;- sum((!is.na(moni_i$sulfate)) &amp; (!is.na(moni_i$nitrate)))</span><br><span class="line">                tmp &lt;- <span class="typedef"><span class="keyword">data</span>.frame<span class="container">(<span class="title">i</span>, <span class="title">nobs</span>)</span></span></span><br><span class="line">                dat &lt;- rbind(dat, tmp)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        cnames &lt;- c(<span class="string">"id"</span>, <span class="string">"nobs"</span>)</span><br><span class="line">        colnames(dat) &lt;- cnames</span><br><span class="line">        dat</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Part_3-1">Part 3</h3><p>corr.R:</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">corr</span> &lt;- function(directory, threshold = 0) &#123;</span><br><span class="line">        files_full &lt;- <span class="keyword">list</span>.files(directory, full.names = TRUE)</span><br><span class="line">        dat &lt;- vector(mode = <span class="string">"numeric"</span>, length = 0)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> 1:<span class="literal">length</span>(files_full)) &#123;</span><br><span class="line">                moni_i &lt;- <span class="keyword">read</span>.csv(files_full[i])</span><br><span class="line">                csum &lt;- <span class="literal">sum</span>((!is.na(moni_i<span class="label">$sulfate</span>)) &amp; (!is.na(moni_i<span class="label">$nitrate</span>)))</span><br><span class="line">                <span class="keyword">if</span> (csum &gt; threshold) &#123;</span><br><span class="line">                        tmp &lt;- moni_i[<span class="keyword">which</span>(!is.na(moni_i<span class="label">$sulfate</span>)), ]</span><br><span class="line">                        submoni_i &lt;- tmp[<span class="keyword">which</span>(!is.na(tmp<span class="label">$nitrate</span>)), ]</span><br><span class="line">                        dat &lt;- c(dat, <span class="keyword">cor</span>(submoni_i<span class="label">$sulfate</span>, submoni_i<span class="label">$nitrate</span>))</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        dat</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Results">Results</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/603c262bef54b77750e4f767520fde12.png" alt=""></p>
+<h2 id="Screenshots">Screenshots</h2><p>I am learning:</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/4bca737e10a93f3ab1bc142ca8b90141.png" alt=""></p>
+<p>Work out the final solution:</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/7b5429aa8dce6a94f26830599e5b193a.png" alt=""></p>
+<p>I am really exciting when finishing this programming assignment!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Introduction">Introduction</h2><p>For this first programming assignment you will write three functions that are meant to interact with dataset that accompanies this assignment. The dataset is contained in a zip file <strong>specdata.zip</strong> that you can download from the Coursera web site. </p>
+<h2 id="Data">Data</h2><p>The zip file containing the data can be downloaded here:</p>
+<ul>
+<li><a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2Fspecdata.zip">specdata.zip</a> [2.4MB]</li>
+</ul>
+<p>The zip file contains 332 comma-separated-value (CSV) files containing pollution monitoring data for fine particulate matter (PM) air pollution at 332 locations in the United States. Each file contains data from a single monitor and the ID number for each monitor is contained in the file name. For example, data for monitor 200 is contained in the file “200.csv”. Each file contains three variables:</p>
+<ul>
+<li><p>Date: the date of the observation in YYYY-MM-DD format (year-month-day)</p>
+</li>
+<li><p>sulfate: the level of sulfate PM in the air on that date (measured in micrograms per cubic meter)</p>
+</li>
+<li><p>nitrate: the level of nitrate PM in the air on that date (measured in micrograms per cubic meter)</p>
+</li>
+</ul>
+<p>For this programming assignment you will need to unzip this file and create the directory ‘specdata’. Once you have unzipped the zip file, <strong>do not</strong> make any modifications to the files in the ‘specdata’ directory. In each file you’ll notice that there are many days where either sulfate or nitrate (or both) are missing (coded as NA). This is common with air pollution monitoring data in the United States.</p>]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://yoursite.com/tags/R/"/>
+    
+      <category term="技术分享" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[简洁高效的R——内建函数的使用]]></title>
@@ -1240,58 +1310,6 @@
       <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
     
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[周末掠影]]></title>
-    <link href="http://yoursite.com/2015/05/17/%E5%91%A8%E6%9C%AB%E6%8E%A0%E5%BD%B1/"/>
-    <id>http://yoursite.com/2015/05/17/周末掠影/</id>
-    <published>2015-05-17T15:08:03.000Z</published>
-    <updated>2015-05-17T16:28:23.000Z</updated>
-    <content type="html"><![CDATA[<p>今天，梦梦说要装扮成一名游客逛校园，出发前，她是这个样子的。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e175f594627470a132974a839f7428c6.jpg" alt=""></p>
-<p>为了搭配协调，我本来也想着要戴副墨镜，虽然今天出门前看起来是阴天，没什么太阳。可惜后来翻箱倒柜却没有找到墨镜，哎，于是只好……把她的眼镜借来拍张照！</p>
-<a id="more"></a>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/604e2d97a32736f131d8a2d2eee0cda1.png" alt=""></p>
-<p>后来，天气渐渐好起来。五月的厦门，到处都是清新明朗的蓝绿色，四处望望，让人心情大好。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/4a4fea768512ddf2464ed26ad2256b0c.png" alt=""></p>
-<p>我们来到一家吃砂锅米线的小店，味道超棒！吃完后，我们小坐休息一会儿。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/ffd1574b247d602d00969d8c54a0aadf.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/ac9f0dd27405c0c7728c47c0bf6e2270.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/d2b7171c5d9a27e0c4c7d1f915c2d896.jpg" alt=""></p>
-<p>美餐一顿后，我们接着逛起来。梦梦装得很像游客，在进校门时，保安叔叔说：“有校园卡吗？”她说有，于是拿出来。保安叔叔又问：“这卡是你的吗？”哈哈！重重检查，不肯放过一名游客，保安叔叔真是尽职尽责！</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/5e219033c0cc74650c99ff5ca4f338da.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/9361dfff4a913d7f1be31d2ee839ae11.png" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/24bca7b5dd5973e527bf6d4bfc5ec347.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/3e9dd02d96a47f1f40ea0f0a731928a5.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e2f47edfe6e68447d29c5689dab5e9a7.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/b71d18707ad5df4aa054f86119d9036d.jpg" alt=""></p>
-<p>天色将晚，慢慢地，我们走到了高尔夫练习场。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/0e742a2d0c637adc913f67972067cec4.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/14796730a2c2e51d62d799961eebd0f2.jpg" alt=""></p>
-<p>咦！看过这么多美美的图片之后，你不禁要问：摄影师跑哪去了？咋就开始的时候录了个脸？</p>
-<p>咳……摄影师隆重登场！</p>
-<p>我把下面这张图取名为：“我们好像在哪见过，你记得吗？”</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/9654d4380b899a04ef004de9782f04ee.jpg" alt=""></p>
-<p>最后……默默上个合影……^_^</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/47614e301fd7f9222eb67a887b6ebbce.jpg" alt=""></p>
-<p>啊，这真是一个开心的周末！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>今天，梦梦说要装扮成一名游客逛校园，出发前，她是这个样子的。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e175f594627470a132974a839f7428c6.jpg" alt=""></p>
-<p>为了搭配协调，我本来也想着要戴副墨镜，虽然今天出门前看起来是阴天，没什么太阳。可惜后来翻箱倒柜却没有找到墨镜，哎，于是只好……把她的眼镜借来拍张照！</p>]]>
-    
-    </summary>
-    
-      <category term="幸福" scheme="http://yoursite.com/tags/%E5%B9%B8%E7%A6%8F/"/>
-    
-      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="高尔夫" scheme="http://yoursite.com/tags/%E9%AB%98%E5%B0%94%E5%A4%AB/"/>
-    
-      <category term="美图" scheme="http://yoursite.com/categories/%E7%BE%8E%E5%9B%BE/"/>
     
   </entry>
   
