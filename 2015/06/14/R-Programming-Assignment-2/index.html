@@ -20,8 +20,8 @@
 
 
 
-	<meta name="keywords" content="Hexo,next" />
-
+	<meta name="keywords" content="R," />
+	
 
 
     <link rel="alternate" href="/atom.xml" title="小默的博客" type="application/atom+xml" />
@@ -42,7 +42,7 @@
     })();
   </script>
 
-  <title> 摘抄小诗一首 // 小默的博客 </title>
+  <title> R Programming Assignment 2: Lexical Scoping // 小默的博客 </title>
 </head>
 
 <body>
@@ -144,7 +144,7 @@
           
           
             
-              摘抄小诗一首
+              R Programming Assignment 2: Lexical Scoping
             
           
         </h1>
@@ -152,14 +152,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-29
+          发表于 2015-06-14
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/诗歌/">诗歌</a>
+              <a href="/categories/技术分享/">技术分享</a>
 
               
               
@@ -172,8 +172,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/29/摘抄小诗一首/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/29/摘抄小诗一首/"></span>
+            <a href="/2015/06/14/R-Programming-Assignment-2/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/14/R-Programming-Assignment-2/"></span>
             </a>
           </span>
           
@@ -187,60 +187,60 @@
       
 
       
-        <p>别让我祈祷能在险恶中获得庇护，</p>
-<p>而祈祷可以勇敢地面对险恶；</p>
-<hr>
-<p>别让我乞求痛苦止息，</p>
-<p>而乞求我的心可以战胜痛苦；</p>
-<hr>
-<p>别让我在人生战场上盼望盟友，</p>
-<p>而是发现自己的力量。</p>
+        <h2 id="Introduction">Introduction</h2><p>This second programming assignment will require you to write an R function is able to cache potentially time-consuming computations. For example, taking the mean of a numeric vector is typically a fast operation. However, for a very long vector, it may take too long to compute the mean, especially if it has to be computed repeatedly (e.g. in a loop). If the contents of a vector are not changing, it may make sense to cache the value of the mean so that when we need it again, it can be looked up in the cache rather than recomputed. In this Programming Assignment will take advantage of the scoping rules of the R language and how they can be manipulated to preserve state inside of an R object.</p>
 <a id="more"></a>
+<h2 id="Example:_Caching_the_Mean_of_a_Vector">Example: Caching the Mean of a Vector</h2><p>In this example we introduce the &lt;&lt;- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores a numeric vector and caches its mean.</p>
+<p>The first function, makeVector creates a special “vector”, which is really a list containing a function to</p>
+<ol>
+<li>set the value of the vector</li>
+<li>get the value of the vector</li>
+<li>set the value of the mean</li>
+<li>get the value of the mean</li>
+</ol>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">makeVector &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">x</span> = <span class="title">numeric</span>()) &#123;</span></span><br><span class="line">        m &lt;- <span class="constant">NULL</span></span><br><span class="line">        <span class="built_in">set</span> &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">y</span>) &#123;</span></span><br><span class="line">                x &lt;&lt;- y</span><br><span class="line">                m &lt;&lt;- <span class="constant">NULL</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">get</span> &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">x</span></span></span><br><span class="line">        setmean &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">mean</span>) <span class="title">m</span> &lt;&lt;- <span class="title">mean</span></span></span><br><span class="line">        getmean &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">m</span></span></span><br><span class="line">        list(<span class="built_in">set</span> = <span class="built_in">set</span>, <span class="built_in">get</span> = <span class="built_in">get</span>,</span><br><span class="line">             setmean = setmean,</span><br><span class="line">             getmean = getmean)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The following function calculates the mean of the special “vector” created with the above function. However, it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">cachemean &lt;- function(x, ...) &#123;</span><br><span class="line">        <span class="keyword">m</span> &lt;- x<span class="label">$getmean</span>()</span><br><span class="line">        <span class="keyword">if</span>(!is.null(<span class="keyword">m</span>)) &#123;</span><br><span class="line">                message(<span class="string">"getting cached data"</span>)</span><br><span class="line">                <span class="literal">return</span>(<span class="keyword">m</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        data &lt;- x<span class="label">$get</span>()</span><br><span class="line">        <span class="keyword">m</span> &lt;- <span class="keyword">mean</span>(data, ...)</span><br><span class="line">        x<span class="label">$setmean</span>(<span class="keyword">m</span>)</span><br><span class="line">        <span class="literal">m</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Assignment:_Caching_the_Inverse_of_a_Matrix">Assignment: Caching the Inverse of a Matrix</h2><p>Matrix inversion is usually a costly computation and there may be some benefit to caching the inverse of a matrix rather than compute it repeatedly (there are also alternatives to matrix inversion that we will not discuss here). Your assignment is to write a pair of functions that cache the inverse of a matrix.</p>
+<p>Write the following functions:</p>
+<ol>
+<li>makeCacheMatrix: This function creates a special “matrix” object that can cache its inverse.</li>
+<li>cacheSolve: This function computes the inverse of the special “matrix” returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cacheSolve should retrieve the inverse from the cache.</li>
+</ol>
+<p>Computing the inverse of a square matrix can be done with the solve function in R. For example, if X is a square invertible matrix, then solve(X) returns its inverse.</p>
+<p>For this assignment, assume that the matrix supplied is always invertible.</p>
 <hr>
-<p>别让我在不安和恐惧中渴望救助，</p>
-<p>而祈愿我的坚韧可以赢取自由。</p>
+<h2 id="My_Solution">My Solution</h2><h3 id="Functions">Functions</h3><p>cachematrix.R:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Caching the Inverse of a Matrix:</span></span><br><span class="line"><span class="comment">## Matrix inversion is usually a costly computation and there may be some </span></span><br><span class="line"><span class="comment">## benefit to caching the inverse of a matrix rather than compute it repeatedly.</span></span><br><span class="line"><span class="comment">## Below are a pair of functions that are used to create a special object that </span></span><br><span class="line"><span class="comment">## stores a matrix and caches its inverse.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## This function creates a special "matrix" object that can cache its inverse.</span></span><br><span class="line"></span><br><span class="line">makeCacheMatrix &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">x</span> = <span class="title">matrix</span>()) &#123;</span></span><br><span class="line">        inv &lt;- <span class="constant">NULL</span></span><br><span class="line">        <span class="built_in">set</span> &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">y</span>) &#123;</span></span><br><span class="line">                x &lt;&lt;- y</span><br><span class="line">                inv &lt;&lt;- <span class="constant">NULL</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">get</span> &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">x</span></span></span><br><span class="line">        setInverse &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">inverse</span>) <span class="title">inv</span> &lt;&lt;- <span class="title">inverse</span></span></span><br><span class="line">        getInverse &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">inv</span></span></span><br><span class="line">        list(<span class="built_in">set</span> = <span class="built_in">set</span>,</span><br><span class="line">             <span class="built_in">get</span> = <span class="built_in">get</span>,</span><br><span class="line">             setInverse = setInverse,</span><br><span class="line">             getInverse = getInverse)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## This function computes the inverse of the special "matrix" created by </span></span><br><span class="line"><span class="comment">## makeCacheMatrix above. If the inverse has already been calculated (and the </span></span><br><span class="line"><span class="comment">## matrix has not changed), then it should retrieve the inverse from the cache.</span></span><br><span class="line"></span><br><span class="line">cacheSolve &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">x</span>, ...) &#123;</span></span><br><span class="line">        <span class="comment">## Return a matrix that is the inverse of 'x'</span></span><br><span class="line">        inv &lt;- x$getInverse()</span><br><span class="line">        <span class="keyword">if</span> (!is.<span class="constant">null</span>(inv)) &#123;</span><br><span class="line">                message(<span class="string">"getting cached data"</span>)</span><br><span class="line">                <span class="constant">return</span>(inv)</span><br><span class="line">        &#125;</span><br><span class="line">        mat &lt;- x$<span class="built_in">get</span>()</span><br><span class="line">        inv &lt;- solve(mat, ...)</span><br><span class="line">        x$setInverse(inv)</span><br><span class="line">        inv</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Testing_My_Functions">Testing My Functions</h3><figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&gt; <span class="atom">source</span>(<span class="string">"ProgrammingAssignment2/cachematrix.R"</span>)</span><br><span class="line">&gt; <span class="atom">my_matrix</span> &lt;- <span class="atom">makeCacheMatrix</span>(<span class="atom">matrix</span>(<span class="number">1</span>:<span class="number">4</span>, <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">get</span>()</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">getInverse</span>()</span><br><span class="line"><span class="name">NULL</span></span><br><span class="line">&gt; <span class="atom">cacheSolve</span>(<span class="atom">my_matrix</span>)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   -<span class="number">2</span>  <span class="number">1.5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span> -<span class="number">0.5</span></span><br><span class="line">&gt; <span class="atom">cacheSolve</span>(<span class="atom">my_matrix</span>)</span><br><span class="line"><span class="atom">getting</span> <span class="atom">cached</span> <span class="atom">data</span></span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   -<span class="number">2</span>  <span class="number">1.5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span> -<span class="number">0.5</span></span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">getInverse</span>()</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   -<span class="number">2</span>  <span class="number">1.5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span> -<span class="number">0.5</span></span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">set</span>(<span class="atom">matrix</span>(<span class="atom">c</span>(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>), <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">get</span>()</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">1</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">getInverse</span>()</span><br><span class="line"><span class="name">NULL</span></span><br><span class="line">&gt; <span class="atom">cacheSolve</span>(<span class="atom">my_matrix</span>)</span><br><span class="line">           [,<span class="number">1</span>]       [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]  <span class="number">0.6666667</span> -<span class="number">0.1666667</span></span><br><span class="line">[<span class="number">2</span>,] -<span class="number">0.3333333</span>  <span class="number">0.3333333</span></span><br><span class="line">&gt; <span class="atom">cacheSolve</span>(<span class="atom">my_matrix</span>)</span><br><span class="line"><span class="atom">getting</span> <span class="atom">cached</span> <span class="atom">data</span></span><br><span class="line">           [,<span class="number">1</span>]       [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]  <span class="number">0.6666667</span> -<span class="number">0.1666667</span></span><br><span class="line">[<span class="number">2</span>,] -<span class="number">0.3333333</span>  <span class="number">0.3333333</span></span><br><span class="line">&gt; <span class="atom">my_matrix</span>$<span class="atom">getInverse</span>()</span><br><span class="line">           [,<span class="number">1</span>]       [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]  <span class="number">0.6666667</span> -<span class="number">0.1666667</span></span><br><span class="line">[<span class="number">2</span>,] -<span class="number">0.3333333</span>  <span class="number">0.3333333</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>请别让我做一个弱者，</p>
-<p>只在成功中感觉到你的仁慈，</p>
-<p>但请让我在失意时感到你双手紧握。</p>
-<hr>
-<p><em>（摘自泰戈尔《采果集》）</em></p>
-<hr>
-<p>Let me not pray to be sheltered from dangers</p>
-<p>but to be fearless in facing them.</p>
-<hr>
-<p>Let me not beg for the stilling of my pain</p>
-<p>but for the heart to conquer it.</p>
-<hr>
-<p>Let me not look for allies in life’s battlefield</p>
-<p>but to my own strength.</p>
-<hr>
-<p>Let me not crave in anxious fear to be saved</p>
-<p>but hope for the patience to win my freedom.</p>
-<hr>
-<p>Grant me that I may not be a coward,</p>
-<p>feeling your mercy in my success alone;</p>
-<p>but let me find the grasp of your hand in my failure.</p>
-<hr>
-<p><em>(excerpted from Rabindranath Tagore, “FRUIT-GATHERING”)</em></p>
+<h2 id="Another_Useful_Example">Another Useful Example</h2><p>A good example for getting a better understanding of differences amount <strong>formal parameters, local variables and free variables</strong>. And it is also helpful for learning the <strong>&lt;&lt;-</strong> operator.</p>
+<p>open.account.R:</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">open</span>.account &lt;- <span class="function"><span class="keyword">function</span><span class="params">(total)</span> &#123;</span></span><br><span class="line">        <span class="keyword">list</span>(</span><br><span class="line">                deposit = <span class="function"><span class="keyword">function</span><span class="params">(amount)</span> &#123;</span></span><br><span class="line">                        <span class="keyword">if</span>(amount &lt;= <span class="number">0</span>)</span><br><span class="line">                                <span class="keyword">stop</span>(<span class="string">"Deposits must be positive!\n"</span>)</span><br><span class="line">                        total &lt;&lt;- total + amount</span><br><span class="line">                        <span class="keyword">cat</span>(amount, <span class="string">"deposited.  Your balance is"</span>, total, <span class="string">"\n\n"</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">                withdraw = <span class="function"><span class="keyword">function</span><span class="params">(amount)</span> &#123;</span></span><br><span class="line">                        <span class="keyword">if</span>(amount &gt; total)</span><br><span class="line">                                <span class="keyword">stop</span>(<span class="string">"You don't have that much money!\n"</span>)</span><br><span class="line">                        total &lt;&lt;- total - amount</span><br><span class="line">                        <span class="keyword">cat</span>(amount, <span class="string">"withdrawn.  Your balance is"</span>, total, <span class="string">"\n\n"</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">                balance = <span class="function"><span class="keyword">function</span><span class="params">()</span> &#123;</span></span><br><span class="line">                        <span class="keyword">cat</span>(<span class="string">"Your balance is"</span>, total, <span class="string">"\n\n"</span>)</span><br><span class="line">                &#125;</span><br><span class="line">        )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Simple tests for open.account function:</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">&gt; peter &lt;- <span class="keyword">open</span>.account(100)</span><br><span class="line">&gt; mm &lt;- <span class="keyword">open</span>.account(200)</span><br><span class="line">&gt; peter<span class="label">$withdraw</span>(30)</span><br><span class="line">30 withdrawn.  Your balance is 70 </span><br><span class="line"></span><br><span class="line">&gt; peter<span class="label">$balance</span>()</span><br><span class="line">Your balance is 70</span><br><span class="line"></span><br><span class="line">&gt; mm<span class="label">$balance</span>()</span><br><span class="line">Your balance is 200 </span><br><span class="line"></span><br><span class="line">&gt; peter<span class="label">$deposit</span>(50)</span><br><span class="line">50 deposited.  Your balance is 120 </span><br><span class="line"></span><br><span class="line">&gt; peter<span class="label">$balance</span>()</span><br><span class="line">Your balance is 120 </span><br><span class="line"></span><br><span class="line">&gt; peter<span class="label">$withdraw</span>(500)</span><br><span class="line"><span class="keyword">Error</span> <span class="keyword">in</span> peter<span class="label">$withdraw</span>(500) : You don't have that much money!</span><br><span class="line">&gt; mm<span class="label">$balance</span>()</span><br><span class="line">Your balance is 200</span><br><span class="line"></span><br><span class="line">&gt; mm<span class="label">$withdraw</span>(12)</span><br><span class="line">12 withdrawn.  Your balance is 188 </span><br><span class="line"></span><br><span class="line">&gt; mm<span class="label">$balance</span>()</span><br><span class="line">Your balance is 188 </span><br><span class="line"></span><br><span class="line">&gt; peter<span class="label">$balance</span>()</span><br><span class="line">Your balance is 120</span><br></pre></td></tr></table></figure>
+<p>More information about <a href="http://cran.r-project.org/doc/manuals/R-intro.html#DOCF23" target="_blank" rel="external">Scope</a>.</p>
 
       
     </div>
 
     <div class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/30/用心聆听你们的声音/">用心聆听你们的声音</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/28/顶澳仔小广场卖豆花的老爷爷/">顶澳仔小广场卖豆花的老爷爷</a>
+              <a href="/2015/06/13/听俞敏洪讲座的思与悟/">听俞敏洪讲座的思与悟</a>
             
           </div>
         </div>
@@ -256,8 +256,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/04/29/摘抄小诗一首/"
-               data-title="摘抄小诗一首" data-url="http://yoursite.com/2015/04/29/摘抄小诗一首/">
+          <div class="ds-thread" data-thread-key="2015/06/14/R-Programming-Assignment-2/"
+               data-title="R Programming Assignment 2: Lexical Scoping" data-url="http://yoursite.com/2015/06/14/R-Programming-Assignment-2/">
           </div>
         
       </div>
@@ -362,7 +362,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example:_Caching_the_Mean_of_a_Vector"><span class="nav-number">2.</span> <span class="nav-text">Example: Caching the Mean of a Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assignment:_Caching_the_Inverse_of_a_Matrix"><span class="nav-number">3.</span> <span class="nav-text">Assignment: Caching the Inverse of a Matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My_Solution"><span class="nav-number">4.</span> <span class="nav-text">My Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Functions"><span class="nav-number">4.1.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing_My_Functions"><span class="nav-number">4.2.</span> <span class="nav-text">Testing My Functions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Another_Useful_Example"><span class="nav-number">5.</span> <span class="nav-text">Another Useful Example</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
