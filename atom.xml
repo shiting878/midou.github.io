@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-06-14T07:14:51.000Z</updated>
+  <updated>2015-06-14T07:19:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,26 +19,18 @@
     <link href="http://yoursite.com/2015/06/14/R-Programming-Assignment-2/"/>
     <id>http://yoursite.com/2015/06/14/R-Programming-Assignment-2/</id>
     <published>2015-06-14T06:25:20.000Z</published>
-    <updated>2015-06-14T07:14:51.000Z</updated>
+    <updated>2015-06-14T07:19:10.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Introduction">Introduction</h2><p>This second programming assignment will require you to write an R function is able to cache potentially time-consuming computations. For example, taking the mean of a numeric vector is typically a fast operation. However, for a very long vector, it may take too long to compute the mean, especially if it has to be computed repeatedly (e.g. in a loop). If the contents of a vector are not changing, it may make sense to cache the value of the mean so that when we need it again, it can be looked up in the cache rather than recomputed. In this Programming Assignment will take advantage of the scoping rules of the R language and how they can be manipulated to preserve state inside of an R object.</p>
 <a id="more"></a>
 <h2 id="Example:_Caching_the_Mean_of_a_Vector">Example: Caching the Mean of a Vector</h2><p>In this example we introduce the &lt;&lt;- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores a numeric vector and caches its mean.</p>
 <p>The first function, makeVector creates a special “vector”, which is really a list containing a function to</p>
-<ol>
-<li>set the value of the vector</li>
-<li>get the value of the vector</li>
-<li>set the value of the mean</li>
-<li>get the value of the mean</li>
-</ol>
+<p>1.set the value of the vector<br>2.get the value of the vector<br>3.set the value of the mean<br>4.get the value of the mean</p>
 <figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">makeVector &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">x</span> = <span class="title">numeric</span>()) &#123;</span></span><br><span class="line">        m &lt;- <span class="constant">NULL</span></span><br><span class="line">        <span class="built_in">set</span> &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">y</span>) &#123;</span></span><br><span class="line">                x &lt;&lt;- y</span><br><span class="line">                m &lt;&lt;- <span class="constant">NULL</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">get</span> &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">x</span></span></span><br><span class="line">        setmean &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">mean</span>) <span class="title">m</span> &lt;&lt;- <span class="title">mean</span></span></span><br><span class="line">        getmean &lt;- <span class="function"><span class="keyword">function</span>() <span class="title">m</span></span></span><br><span class="line">        list(<span class="built_in">set</span> = <span class="built_in">set</span>, <span class="built_in">get</span> = <span class="built_in">get</span>,</span><br><span class="line">             setmean = setmean,</span><br><span class="line">             getmean = getmean)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The following function calculates the mean of the special “vector” created with the above function. However, it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.</p>
 <figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">cachemean &lt;- function(x, ...) &#123;</span><br><span class="line">        <span class="keyword">m</span> &lt;- x<span class="label">$getmean</span>()</span><br><span class="line">        <span class="keyword">if</span>(!is.null(<span class="keyword">m</span>)) &#123;</span><br><span class="line">                message(<span class="string">"getting cached data"</span>)</span><br><span class="line">                <span class="literal">return</span>(<span class="keyword">m</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        data &lt;- x<span class="label">$get</span>()</span><br><span class="line">        <span class="keyword">m</span> &lt;- <span class="keyword">mean</span>(data, ...)</span><br><span class="line">        x<span class="label">$setmean</span>(<span class="keyword">m</span>)</span><br><span class="line">        <span class="literal">m</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Assignment:_Caching_the_Inverse_of_a_Matrix">Assignment: Caching the Inverse of a Matrix</h2><p>Matrix inversion is usually a costly computation and there may be some benefit to caching the inverse of a matrix rather than compute it repeatedly (there are also alternatives to matrix inversion that we will not discuss here). Your assignment is to write a pair of functions that cache the inverse of a matrix.</p>
 <p>Write the following functions:</p>
-<ol>
-<li>makeCacheMatrix: This function creates a special “matrix” object that can cache its inverse.</li>
-<li>cacheSolve: This function computes the inverse of the special “matrix” returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cacheSolve should retrieve the inverse from the cache.</li>
-</ol>
+<p>1.makeCacheMatrix: This function creates a special “matrix” object that can cache its inverse.<br>2.cacheSolve: This function computes the inverse of the special “matrix” returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cacheSolve should retrieve the inverse from the cache.</p>
 <p>Computing the inverse of a square matrix can be done with the solve function in R. For example, if X is a square invertible matrix, then solve(X) returns its inverse.</p>
 <p>For this assignment, assume that the matrix supplied is always invertible.</p>
 <hr>
