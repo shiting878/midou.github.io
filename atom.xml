@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-06-19T16:13:12.000Z</updated>
+  <updated>2015-06-19T16:15:06.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title><![CDATA[R Programming Assignment 3: Hospital Quality]]></title>
     <link href="http://yoursite.com/2015/06/19/R-Programming-Assignment-3/"/>
     <id>http://yoursite.com/2015/06/19/R-Programming-Assignment-3/</id>
-    <published>2015-06-18T18:49:44.000Z</published>
-    <updated>2015-06-19T16:13:12.000Z</updated>
+    <published>2015-06-19T04:49:44.000Z</published>
+    <updated>2015-06-19T16:15:06.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Introduction">Introduction</h2><p>Download the file <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2FProgAssignment3-data.zip" target="_blank" rel="external">ProgAssignment3-data.zip</a> file containing the data for Programming Assignment 3 from the Coursera web site. Unzip the file in a directory that will serve as your working directory. When you start up R make sure to change your working directory to the directory where you unzipped the data.</p>
 <p>The data for this assignment come from the Hospital Compare web site (<a href="http://hospitalcompare.hhs.gov" target="_blank" rel="external">http://hospitalcompare.hhs.gov</a>) run by the U.S. Department of Health and Human Services. The purpose of the web site is to provide data and information about the quality of care at over 4,000 Medicare-certified hospitals in the U.S. This dataset essentially covers all major U.S. hospitals. This dataset is used for a variety of purposes, including determining whether hospitals should be fined for not providing high quality care to patients (see <a href="http://goo.gl/jAXFX" target="_blank" rel="external">http://goo.gl/jAXFX</a> for some background on this particular topic).</p>
 <a id="more"></a>
