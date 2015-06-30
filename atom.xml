@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-06-26T16:52:27.000Z</updated>
+  <updated>2015-06-30T16:16:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[无需粉饰的美]]></title>
+    <link href="http://yoursite.com/2015/07/01/%E6%97%A0%E9%9C%80%E7%B2%89%E9%A5%B0%E7%9A%84%E7%BE%8E/"/>
+    <id>http://yoursite.com/2015/07/01/无需粉饰的美/</id>
+    <published>2015-06-30T16:13:03.000Z</published>
+    <updated>2015-06-30T16:16:43.000Z</updated>
+    <content type="html"><![CDATA[<p>在原图面前，任何粉饰都显得多余。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/d0c43d7b0864e88d91535b2df705aa97.jpg" alt=""></p>
+<a id="more"></a>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/5e8a12173d418989586d3aea7d2e95b1.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在原图面前，任何粉饰都显得多余。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/d0c43d7b0864e88d91535b2df705aa97.jpg" alt=""></p>]]>
+    
+    </summary>
+    
+      <category term="美图" scheme="http://yoursite.com/categories/%E7%BE%8E%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[你就像小天使一样]]></title>
     <link href="http://yoursite.com/2015/06/27/%E4%BD%A0%E5%B0%B1%E5%83%8F%E5%B0%8F%E5%A4%A9%E4%BD%BF%E4%B8%80%E6%A0%B7/"/>
     <id>http://yoursite.com/2015/06/27/你就像小天使一样/</id>
     <published>2015-06-26T16:14:31.000Z</published>
-    <updated>2015-06-26T16:52:27.000Z</updated>
+    <updated>2015-06-26T16:55:30.000Z</updated>
     <content type="html"><![CDATA[<p>一步一步朝前走去，留给世界的只是背影。</p>
 <p><img src="http://qiniupicbed.qiniudn.com/upload/4ebed9baeebff2b6a7a44d1154d9bf87.jpg" alt=""></p>
 <a id="more"></a>
@@ -760,33 +781,6 @@
     </summary>
     
       <category term="美图" scheme="http://yoursite.com/categories/%E7%BE%8E%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Forrest Gump]]></title>
-    <link href="http://yoursite.com/2015/05/27/Forrest-Gump/"/>
-    <id>http://yoursite.com/2015/05/27/Forrest-Gump/</id>
-    <published>2015-05-27T14:36:43.000Z</published>
-    <updated>2015-05-27T14:52:32.000Z</updated>
-    <content type="html"><![CDATA[<p>今晚看了《阿甘正传》，不知道要写什么感想，只是看完发现右眼有些眼泪。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/bbff587abb60d4ddc6b770f42d116678.jpg" alt=""></p>
-<a id="more"></a>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e342585b4a28d02fd9d2e43d7f189e58.jpg" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/50b321bd38f675e89ab77d71b2f6e1f0.jpg" alt=""></p>
-<blockquote>
-<p>Stupid is as stupid does.</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>今晚看了《阿甘正传》，不知道要写什么感想，只是看完发现右眼有些眼泪。</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/bbff587abb60d4ddc6b770f42d116678.jpg" alt=""></p>]]>
-    
-    </summary>
-    
-      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="电影" scheme="http://yoursite.com/categories/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
