@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-06T16:41:00.000Z</updated>
+  <updated>2015-07-08T01:19:13.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[狂啃统计学]]></title>
+    <link href="http://yoursite.com/2015/07/07/%E7%8B%82%E5%95%83%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    <id>http://yoursite.com/2015/07/07/狂啃统计学/</id>
+    <published>2015-07-07T14:26:37.000Z</published>
+    <updated>2015-07-08T01:19:13.000Z</updated>
+    <content type="html"><![CDATA[<p>最近得了怪病，病症如下：手贱老在亚马逊上买书，隔三差五地买个几本，好多书都打开看，一起看，每本都读了没多少，一堆未完成事件堆积着，又想踏实学点R语言、数据分析和统计学知识。</p>
+<p>其实手贱买书这个毛病从本科就开始养成，那时症状稍微轻些，大概每个月买一两次，每次买一两本，买来平时就带着在自习室看，看完又再买新的有意思的书来看。</p>
+<p>没想到手贱的症状愈演愈烈，现在是一发不可收拾，一个月买N次，没事就用手机刷刷亚马逊的APP，看看有啥推荐给我的书，或者看看微信订阅号里“湛卢文化”或“读客”有啥新书推荐，然后又到亚马逊里接着刷。</p>
+<a id="more"></a>
+<p>不得不承认，亚马逊的推荐系统现在是做得越来越好了，以前给我推荐一百本书，中意的估计就二三本而已。现在好了，推荐十本，基本上就有二三本中意的。不知是我现在更喜欢广泛阅读各类书籍，还是推荐系统对我的心意和喜好了如指掌。</p>
+<p>反思了一下，我现在最大的毛病是，没有以前读书那么专一了，以前看一本，就踏踏实实花上几天，大段大段的时间看，从头到尾读完一本是一本。现在喜欢这看看，那看看，结果落下了一堆烂尾工程。其实也不能说是烂尾工程，因为书大多都是好书，也是我感兴趣的内容，只不过常常被未完成事件纠缠着。</p>
+<p>还有个原因，也许是现在看的书更厚了，内容更丰富了，不是三两下就能理解消化了的。哎，罢了，不给自己找借口了，埋头读书吧，不瞎扯了。</p>
+<p>如果说天堂有个具体样子的话，我想它会是图书馆的样子吧。</p>
+<p>回宿舍倒头大睡，醒来就到图书馆狂啃书。若干年后回首，想必这会是人生中无比幸福的一段岁月。</p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/fbb95cdee5521af456a090b8e9096a7c.jpg" alt=""></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/a5245fd40cea3c070c5d80c89758f1fa.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近得了怪病，病症如下：手贱老在亚马逊上买书，隔三差五地买个几本，好多书都打开看，一起看，每本都读了没多少，一堆未完成事件堆积着，又想踏实学点R语言、数据分析和统计学知识。</p>
+<p>其实手贱买书这个毛病从本科就开始养成，那时症状稍微轻些，大概每个月买一两次，每次买一两本，买来平时就带着在自习室看，看完又再买新的有意思的书来看。</p>
+<p>没想到手贱的症状愈演愈烈，现在是一发不可收拾，一个月买N次，没事就用手机刷刷亚马逊的APP，看看有啥推荐给我的书，或者看看微信订阅号里“湛卢文化”或“读客”有啥新书推荐，然后又到亚马逊里接着刷。</p>]]>
+    
+    </summary>
+    
+      <category term="岁月" scheme="http://yoursite.com/tags/%E5%B2%81%E6%9C%88/"/>
+    
+      <category term="幸福" scheme="http://yoursite.com/tags/%E5%B9%B8%E7%A6%8F/"/>
+    
+      <category term="阅读" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="个人随笔" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[早上看到的一条微信]]></title>
@@ -785,29 +820,6 @@
 </li>
 </ul>
 <p>For this programming assignment you will need to unzip this file and create the directory ‘specdata’. Once you have unzipped the zip file, <strong>do not</strong> make any modifications to the files in the ‘specdata’ directory. In each file you’ll notice that there are many days where either sulfate or nitrate (or both) are missing (coded as NA). This is common with air pollution monitoring data in the United States.</p>]]>
-    
-    </summary>
-    
-      <category term="R" scheme="http://yoursite.com/tags/R/"/>
-    
-      <category term="技术分享" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[简洁高效的R——内建函数的使用]]></title>
-    <link href="http://yoursite.com/2015/06/09/%E7%AE%80%E6%B4%81%E9%AB%98%E6%95%88%E7%9A%84R%E2%80%94%E2%80%94%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2015/06/09/简洁高效的R——内建函数的使用/</id>
-    <published>2015-06-09T09:37:30.000Z</published>
-    <updated>2015-06-09T15:11:10.000Z</updated>
-    <content type="html"><![CDATA[<p>今天看到一个很好的<a href="https://github.com/rdpeng/practice_assignment/blob/master/practice_assignment.rmd" target="_blank" rel="external">tutorial</a>，学习了之后，精简地写出了以下的两个function。前一个是从基本思想出发来写，后一个是对前一个的优化版本。后者在处理数量很大的CSV文件操作时会显出优势。</p>
-<a id="more"></a>
-<p>weightmedian.R:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">weightmedian &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">directory</span>, <span class="title">day</span>) &#123;</span></span><br><span class="line">        files_full &lt;- list.<span class="built_in">files</span>(<span class="built_in">directory</span>, full.names = <span class="constant">TRUE</span>)</span><br><span class="line">        dat &lt;- data.frame()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i <span class="operator">in</span> <span class="number">1</span>:<span class="number">5</span>) &#123;</span><br><span class="line">                dat &lt;- rbind(dat, <span class="built_in">read</span>.csv(files_full[i]))</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        dat_day &lt;- dat[which(dat[, <span class="string">"Day"</span>] == day), ]</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">median</span>(dat_day$Weight, na.rm = <span class="constant">TRUE</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">optiweightmedian &lt;- <span class="function"><span class="keyword">function</span>(<span class="title">directory</span>, <span class="title">day</span>) &#123;</span></span><br><span class="line">        files_full &lt;- list.<span class="built_in">files</span>(<span class="built_in">directory</span>, full.names = <span class="constant">TRUE</span>)</span><br><span class="line">        <span class="comment">#tmp &lt;- vector(mode = "list", length = length(files_full))</span></span><br><span class="line">        tmp &lt;- lapply(files_full, <span class="built_in">read</span>.csv)</span><br><span class="line">        dat &lt;- <span class="built_in">do</span>.call(rbind, tmp)</span><br><span class="line">        dat_day &lt;- dat[which(dat[, <span class="string">"Day"</span>] == day), ]</span><br><span class="line">        <span class="built_in">median</span>(dat_day$Weight, na.rm = <span class="constant">TRUE</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码虽短，却足以显示出R语言的简洁高效。简单之中，往往蕴藏着大智慧。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>今天看到一个很好的<a href="https://github.com/rdpeng/practice_assignment/blob/master/practice_assignment.rmd">tutorial</a>，学习了之后，精简地写出了以下的两个function。前一个是从基本思想出发来写，后一个是对前一个的优化版本。后者在处理数量很大的CSV文件操作时会显出优势。</p>]]>
     
     </summary>
     
