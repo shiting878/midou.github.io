@@ -20,7 +20,7 @@
 
 
 
-	<meta name="keywords" content="设计模式," />
+	<meta name="keywords" content="诗,钢琴,音乐," />
 	
 
 
@@ -42,7 +42,7 @@
     })();
   </script>
 
-  <title> 设计模式学习（一）——命令模式 // 小默的博客 </title>
+  <title> 三行情诗和音乐 // 小默的博客 </title>
 </head>
 
 <body>
@@ -144,7 +144,7 @@
           
           
             
-              设计模式学习（一）——命令模式
+              三行情诗和音乐
             
           
         </h1>
@@ -152,14 +152,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-05-22
+          发表于 2015-07-11
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/技术分享/">技术分享</a>
+              <a href="/categories/个人随笔/">个人随笔</a>
 
               
               
@@ -172,8 +172,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/05/22/设计模式学习1——命令模式/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/22/设计模式学习1——命令模式/"></span>
+            <a href="/2015/07/11/三行情诗和音乐/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/11/三行情诗和音乐/"></span>
             </a>
           </span>
           
@@ -187,62 +187,29 @@
       
 
       
-        <h1 id="命令模式定义">命令模式定义</h1><p><strong>命令模式（Command Pattern）</strong>将一个 [ 请求 | 命令 | 调用方法 ] 封装为一个对象，从而可用不同的 [ 请求 | 命令 | 调用方法 ] 对客户进行参数化，对 [ 请求 | 命令 | 调用方法 ] 排队或记录其日志，以及支持可撤销的操作。</p>
-<p>命令模式可以对发送者（Sender）和接收者（Receiver）<strong>完全解耦（Decoupling）</strong>。<strong>发送者</strong>是请求操作（发出命令）的对象，<strong>接收者</strong>是接收请求（接收命令）并执行某相应操作的对象。</p>
+        <p>这几天，在狂啃Head First《深入浅出统计学》的同时，也有点小小的娱乐和放松活动。</p>
+<p>昨天看到学校图书馆和读书爱好者协会一起举办了个“三行情诗”比赛，要求小诗的每行里都要包括一本书的书名，并注上书名号，并可在诗后附上一段创作灵感描述。如果参赛获奖，一、二、三等奖分别是赠送小诗里的三、二、一本书作为奖品，如果无缘大奖，还有优秀作品奖，由图书馆和读者协会提供精美小礼品一份。</p>
 <a id="more"></a>
-<hr>
-<h1 id="命令模式结构图">命令模式结构图</h1><p><img src="http://qiniupicbed.qiniudn.com/upload/e44013085e2a02c9ae2f837208d4885d.png" alt=""></p>
-<p>图中：</p>
+<p>看了眼，正巧是截稿日期，于是我便立刻上亚马逊的心愿单里看看最近有啥想看但是没买的书。简单扫了一眼，抽出几本书名文艺的，拼凑了一首小诗如下。</p>
+<blockquote>
+<p>究竟《谁是谁的太阳》？<br>我独坐在《小镇的甜品屋》一隅，<br>静候时光这位苍老的《摆渡人》。</p>
+<p>创作灵感：坐在图书馆看书（诗中用书名《小镇的甜品屋》借代），阳光越过窗沿，常常在思考，生命中到底谁是谁的太阳，其实真正的温暖和力量来自我们的内心，也许只有时光这位苍老的摆渡人才能让我们渐渐苏醒和明晰。</p>
+</blockquote>
+<p>纯属写着玩玩，今天收到了前几天买的一张钢琴CD，是鲁宾斯坦（Arthur Rubinstein）1959年的珍贵录音，包含了肖邦（Frédéric Chopin）的四首叙事曲（Ballades）和四首谐谑曲（Scherzos）。</p>
+<p>CD的介绍里写着：</p>
 <ul>
-<li><p>Command表示抽象命令类，它用于声明执行操作的一个接口；</p>
+<li><p>肖邦的叙事曲和谐谑曲均堪称浪漫派独立性大型乐曲之典范，作品的乐思宏伟，结构庞大，舒曼更将《第一叙事曲》称为“肖邦最具天才的杰作”。四首叙事曲创造了新的曲式和内容，没有模仿传统的古典形式，也没有吐露出抽象、主观的感情。</p>
 </li>
-<li><p>ConcreteCommand表示具体命令类，它将一个接收者对象绑定于一个动作，实现在Command中声明的execute()方法，调用接收者的相关操作（Action）；</p>
+<li><p>他的四首谐谑曲则表达了激烈的愤怒与绝望的情绪，时而也有辛辣的讥讽和顽固的自尊。</p>
 </li>
-<li><p>Client表示客户应用程序，创建一个具体命令类的对象，并且设定它的接收者；</p>
-</li>
-<li><p>Invoker表示调用者，要求一个命令对象执行一个请求；</p>
-</li>
-<li><p>Receiver表示接收者，它实现如何执行关联请求的相关操作。</p>
+<li><p>这张唱片汇集肖邦全部四首叙事曲和四首谐谑曲，由堪称20世纪最权威的肖邦音乐诠释者鲁宾斯坦演奏。鲁宾斯坦和肖邦同为波兰人，同根同源使他对肖邦音乐中的波兰情怀作出了最淋漓尽致的本土化诠释，他的演奏既表现出抒情温暖、热情激昂的情绪，又体现出冷静、理智的个人魅力，不仅富于新意，而且效果完美，与肖邦的音乐特质相得益彰。</p>
 </li>
 </ul>
-<hr>
-<h1 id="命令模式实例——公告板系统">命令模式实例——公告板系统</h1><h2 id="实例说明">实例说明</h2><p>某软件公司欲开发一个基于Windows平台的公告板系统。系统提供一个主菜单（Menu），在主菜单中包含了一些菜单项（MenuItem），可以通过Menu类的addMenuItem()方法增加菜单项。菜单项的主要方法是click()，每一个菜单项包含一个抽象命令类，具体命令类包括OpenCommand（打开命令）、CreateCommand（新建命令）、EditCommand（编辑命令）等，命令类具有一个execute()方法，用于调用公告板系统界面类（BoardScreen）的open()、create()、edit()等方法。现使用命令模式设计该系统，使得MenuItem类与BoardScreen类的耦合度降低，绘制类图并编程实现。</p>
-<h2 id="实例类图">实例类图</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/0eb36972dfdb73a904b958838d4adad1.png" alt=""></p>
-<p>实例类图中与命令模式结构图对应的类主要有：</p>
-<ul>
-<li><p>Command为抽象命令类（即一个接口）；</p>
-</li>
-<li><p>OpenCommand、CreateCommand和EditCommand为具体命令类；</p>
-</li>
-<li><p>Client为客户端测试类（未在图中画出）；</p>
-</li>
-<li><p>MenuItem为调用者（也是请求发送者）；</p>
-</li>
-<li><p>BoardScreen为接收者。</p>
-</li>
-</ul>
-<h2 id="实例代码">实例代码</h2><p>Command.java:</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//抽象命令</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title">Command</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>MenuItem.java:</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//菜单项类：请求发送者（调用者）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">MenuItem</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> Command command;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MenuItem</span><span class="params">(String name)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Command <span class="title">getCommand</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.command;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommand</span><span class="params">(Command command)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.command = command;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		command.execute();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Menu.java:</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor"><span class="keyword">import</span> java.util.*;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//菜单类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Menu</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> ArrayList itemList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> addMenuItem(MenuItem item)</span><br><span class="line">	&#123;</span><br><span class="line">		itemList.add(item);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>OpenCommand.java:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//打开命令：具体命令</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenCommand</span> <span class="keyword">implements</span> <span class="title">Command</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> BoardScreen screen;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">OpenCommand</span><span class="params">(BoardScreen screen)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.screen = screen;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		screen.open();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>CreateCommand.java:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//新建命令：具体命令</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateCommand</span> <span class="keyword">implements</span> <span class="title">Command</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> BoardScreen screen;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CreateCommand</span><span class="params">(BoardScreen screen)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.screen = screen;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		screen.create();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>EditCommand.java:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//编辑命令：具体命令</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EditCommand</span> <span class="keyword">implements</span> <span class="title">Command</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> BoardScreen screen;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">EditCommand</span><span class="params">(BoardScreen screen)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.screen = screen;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		screen.edit();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>BoardScreen.java:</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公告板系统界面：接收者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">BoardScreen</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> Menu menu;</span><br><span class="line">	<span class="keyword">private</span> MenuItem openItem,createItem,editItem;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BoardScreen</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		menu = <span class="keyword">new</span> Menu();</span><br><span class="line">		openItem = <span class="keyword">new</span> MenuItem(<span class="string">"打开"</span>);</span><br><span class="line">		createItem = <span class="keyword">new</span> MenuItem(<span class="string">"新建"</span>);</span><br><span class="line">		editItem = <span class="keyword">new</span> MenuItem(<span class="string">"编辑"</span>);</span><br><span class="line">		menu.addMenuItem(openItem);</span><br><span class="line">		menu.addMenuItem(createItem);</span><br><span class="line">		menu.addMenuItem(editItem);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"主菜单选项："</span>);</span><br><span class="line">		<span class="keyword">for</span>(Object obj:menu.itemList)</span><br><span class="line">		&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(((MenuItem)obj).getName());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"显示打开窗口"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"显示新建窗口"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">edit</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"显示编辑窗口"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Menu <span class="title">getMenu</span><span class="params">()</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> menu;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Client.java:</p>
-<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line">//客户端测试类</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Client</span></span><br><span class="line">&#123;</span><br><span class="line">	public static void main<span class="container">(<span class="type">String</span> <span class="title">args</span>[])</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">BoardScreen</span> screen = new <span class="type">BoardScreen</span><span class="container">()</span>;</span><br><span class="line">		<span class="type">Menu</span> menu = screen.getMenu<span class="container">()</span>;</span><br><span class="line">		<span class="type">Command</span> openCommand,createCommand,editCommand;</span><br><span class="line">		openCommand = new <span class="type">OpenCommand</span><span class="container">(<span class="title">screen</span>)</span>;</span><br><span class="line">		createCommand = new <span class="type">CreateCommand</span><span class="container">(<span class="title">screen</span>)</span>;</span><br><span class="line">		editCommand = new <span class="type">EditCommand</span><span class="container">(<span class="title">screen</span>)</span>;</span><br><span class="line">		<span class="type">MenuItem</span> openItem,createItem,editItem;</span><br><span class="line">		openItem = <span class="container">(<span class="type">MenuItem</span>)</span>menu.itemList.get<span class="container">(0)</span>;</span><br><span class="line">		createItem = <span class="container">(<span class="type">MenuItem</span>)</span>menu.itemList.get<span class="container">(1)</span>;</span><br><span class="line">		editItem = <span class="container">(<span class="type">MenuItem</span>)</span>menu.itemList.get<span class="container">(2)</span>;</span><br><span class="line">		openItem.setCommand<span class="container">(<span class="title">openCommand</span>)</span>;</span><br><span class="line">		createItem.setCommand<span class="container">(<span class="title">createCommand</span>)</span>;</span><br><span class="line">		editItem.setCommand<span class="container">(<span class="title">editCommand</span>)</span>;</span><br><span class="line">		screen.display<span class="container">()</span>;</span><br><span class="line">		openItem.click<span class="container">()</span>;</span><br><span class="line">		createItem.click<span class="container">()</span>;</span><br><span class="line">		editItem.click<span class="container">()</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="运行结果">运行结果</h2><p><img src="http://qiniupicbed.qiniudn.com/upload/b28cb46ccbc2214d2022a578f8807d5d.png" alt=""></p>
-<h2 id="附加描述">附加描述</h2><p>在本实例中，只需要在调用者MenuItem中注入不同的具体命令类，可以使得相同的菜单项MenuItem对应接收者BoardScreen的不同方法。无需修改类库代码，只需修改客户端代码即可更换接收者。</p>
-<p>在实际开发时，还可以将BoardScreen中的open()、create()和edit()等方法封装在不同的类中，如果需要更换某菜单项的功能，只需对应增加一个新的具体命令类和一个接收者类，再将新的具体命令对象注入对应的MenuItem对象，即可实现菜单项功能的改变，且符合开闭原则。</p>
-<p><em>注：开闭原则（Open-Closed Principle, OCP）由Bertrand Meyer提出，其定义为“Software entities should be open for extension, but closed for modification.”也就是说软件实体应对扩展开放，而对修改关闭，即软件实体应尽量在不修改原有代码的情况下进行扩展。</em></p>
-<hr>
-<h1 id="后话">后话</h1><p>今天花了好长时间，才对命令模式有了基本的理解。感慨设计模式学路之漫漫，愚将日积跬步而求索。</p>
+<p>一边听着CD，一边打字，《第一叙事曲》就是“G小调叙事曲”，我第一次听见这个曲子是在电影《战地琴人》里，当时消瘦的钢琴家在德国军官面前演奏了这曲，也许是音乐中流露出的某种感情打动了战争中冷酷的德国军人，那军官放过了钢琴家，之后还给他送来吃的让他得以继续生存。后来，这个曲子就深深印在我的脑海里，直到后来听钢琴曲，看到有网友推荐说“G小调叙事曲”堪称经典，我便找出来听，觉得曲调似曾相识，然后才知道就是我看过的那部电影里的乐曲，当时看的时候还不知道这曲的名字。</p>
+<p>打字过程好几次被中断，不得不说，这其中的好几首乐曲着实令我陶醉和沉浸其中。音乐的魅力在于它能让你停下手中的事和脑中的思维，让你静静感受旋律的流淌和曲中动人的故事。</p>
+<p>音乐在安静的地方缓缓升起，让我摒弃浮华，沉下心来聆听。</p>
+<p>大道至简，大美天成。<em>（这句结尾引自今天王亚南经济研究院小学期数据科学系列讲座最后一讲的腾讯的靳志辉的报告中的一个主题标题。）</em></p>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/99e671d737dcfa7db70da35037a4e30b.jpg" alt=""></p>
 
       
     </div>
@@ -251,7 +218,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/设计模式/"> #设计模式 </a>
+            <a href="/tags/诗/"> #诗 </a>
+          
+            <a href="/tags/钢琴/"> #钢琴 </a>
+          
+            <a href="/tags/音乐/"> #音乐 </a>
           
         </div>
       
@@ -260,13 +231,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/23/滑稽的大雨/">滑稽的大雨</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/22/16PF心理测试结果/">16PF心理测试结果</a>
+              <a href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/">Getting and Cleaning Data: Quiz 1</a>
             
           </div>
         </div>
@@ -282,8 +251,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/05/22/设计模式学习1——命令模式/"
-               data-title="设计模式学习（一）——命令模式" data-url="http://yoursite.com/2015/05/22/设计模式学习1——命令模式/">
+          <div class="ds-thread" data-thread-key="2015/07/11/三行情诗和音乐/"
+               data-title="三行情诗和音乐" data-url="http://yoursite.com/2015/07/11/三行情诗和音乐/">
           </div>
         
       </div>
@@ -388,7 +357,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式定义"><span class="nav-number">1.</span> <span class="nav-text">命令模式定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式结构图"><span class="nav-number">2.</span> <span class="nav-text">命令模式结构图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式实例——公告板系统"><span class="nav-number">3.</span> <span class="nav-text">命令模式实例——公告板系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例说明"><span class="nav-number">3.1.</span> <span class="nav-text">实例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例类图"><span class="nav-number">3.2.</span> <span class="nav-text">实例类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例代码"><span class="nav-number">3.3.</span> <span class="nav-text">实例代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.4.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加描述"><span class="nav-number">3.5.</span> <span class="nav-text">附加描述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后话"><span class="nav-number">4.</span> <span class="nav-text">后话</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
