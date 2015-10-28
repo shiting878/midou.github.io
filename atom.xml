@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xmuxiaomo.github.io/"/>
-  <updated>2015-10-28T01:00:53.000Z</updated>
+  <updated>2015-10-28T01:11:17.000Z</updated>
   <id>http://xmuxiaomo.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://xmuxiaomo.github.io/2015/10/28/hackers-and-painters/"/>
     <id>http://xmuxiaomo.github.io/2015/10/28/hackers-and-painters/</id>
     <published>2015-10-28T00:14:41.000Z</published>
-    <updated>2015-10-28T01:00:53.000Z</updated>
+    <updated>2015-10-28T01:11:17.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://qiniupicbed.qiniudn.com/upload/fe60e26b82af2d15c79585512b7e6419.jpg" alt=""></p>
 <p>Paul Graham的《黑客与画家》这本书，我是2014年4月21日开始读的，那时读了半本，觉得书中的许许多多地方都值得细品，所以读得很慢，每次只读几页，再反思一会儿。之间中断了好长时间没再看，前两天又翻起书架上的这本书，一口气把后半本读完了。</p>
 <p>之所以又翻起这本书，是前些天在看《如何创业》的网易公开课时，<a href="http://open.163.com/movie/2014/9/S/M/MA8CUF9DQ_MA8KHG2SM.html" target="_blank" rel="external">第三节</a>看完，觉得演讲者挺幽默的，一查，发现是硅谷创业之父Paul Graham，我立刻联想到自己曾经读过他的文章，于是便回顾了《黑客与画家》这本书的前半部分，并把后续部分读完。不得不说，作者是个睿智的黑客，他的文笔轻松幽默，又充满对既有现象和规则的哲思。他认为黑客与画家最相像，共同之处在于他们都是创作者，与作曲家、建筑师、作家一样，他们都试图创作出优秀的作品。其实，我觉得各行各业上升到一定高度后，都可以成为艺术，都有相通的地方。</p>
@@ -35,7 +35,7 @@
 <p>这种语言以层的方式构建。较高的抽象层透明地构建在较低的抽象层之上。如果需要的话，你可以直接使用较低的抽象层。</p>
 <p>除了一些绝对必要隐藏的东西，这种语言的所有细节对使用者都是透明的。它提供的抽象能力只是为了方便你的开发，而不是为了强迫你按照它的方式行事。事实上，它鼓励你参与它的设计，给你提供与语言创造者平等的权力。你能够对它的任何部分加以改变，甚至包括它的语法。它尽可能让你自己定义的部分与它本身定义的部分处于同等地位。这种梦幻般的编程语言不仅开放源码，更开放自身的设计。</p>
 <hr>
-<p>不得不提的是，这本书的翻译阮一峰先生，他翻译得通顺易读，这在计算机专业领域里是颇为难得的。</p>
+<p>不得不提的是，这本书的翻译阮一峰先生，他翻译得通顺易读，这在计算机专业领域里是颇为难得的。读完译者翻译的好书，能让我接触到国外优秀计算机黑客的思想，这是一件无比幸福的事情。我感谢作者Paul Graham先生，也感谢译者阮一峰先生。</p>
 <hr>
 <p>书的封面有一幅勃鲁盖尔的绘画作品——《通天塔》：</p>
 <p><img src="http://qiniupicbed.qiniudn.com/upload/fcb827263179ceceb300a242c49e374c.jpg" alt=""></p>
@@ -52,6 +52,8 @@
     </summary>
     
       <category term="Paul Graham" scheme="http://xmuxiaomo.github.io/tags/Paul-Graham/"/>
+    
+      <category term="勃鲁盖尔" scheme="http://xmuxiaomo.github.io/tags/%E5%8B%83%E9%B2%81%E7%9B%96%E5%B0%94/"/>
     
       <category term="幸福" scheme="http://xmuxiaomo.github.io/tags/%E5%B9%B8%E7%A6%8F/"/>
     
