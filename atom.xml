@@ -4,7 +4,7 @@
   <subtitle><![CDATA[用自由自在的态度，过随遇而安的生活。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xmuxiaomo.github.io/"/>
-  <updated>2016-06-18T15:44:41.000Z</updated>
+  <updated>2016-06-20T17:23:33.000Z</updated>
   <id>http://xmuxiaomo.github.io/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[毕业典礼]]></title>
+    <link href="http://xmuxiaomo.github.io/2016/06/20/commencement/"/>
+    <id>http://xmuxiaomo.github.io/2016/06/20/commencement/</id>
+    <published>2016-06-20T07:09:42.000Z</published>
+    <updated>2016-06-20T17:23:33.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>清晨四点被窗外的蝉鸣惊扰<br>似乎有盛事即将发生</p>
+<p>新鲜的豆浆面包<br>就着知了尿下肚</p>
+<p>两片枯叶飘零<br>扰动了凝固的闷热</p>
+<p>大红的横幅愈发闪亮<br>闪光灯千百次的洗刷</p>
+<p>黑蓝红交错<br>帽子被抛出相机镜头之外</p>
+<p>热血与青春<br>将毕业之门煮沸</p>
+<p>2016.6.20于建南大会堂</p>
+</blockquote>
+<hr>
+<p><img src="http://qiniupicbed.qiniudn.com/upload/198e520fa36531269d4490f00505d5fa.JPG" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>清晨四点被窗外的蝉鸣惊扰<br>似乎有盛事即将发生</p>
+<p>新鲜的豆浆面包<br>就着知了尿下肚</p>
+<p>两片枯叶飘零<br>扰动了凝固的闷热</p>
+<p>大红的横幅愈发闪亮<br>闪光灯千百次的洗刷</p>
+<p>黑蓝红交错<br>]]>
+    </summary>
+    
+      <category term="诗" scheme="http://xmuxiaomo.github.io/tags/%E8%AF%97/"/>
+    
+      <category term="诗歌" scheme="http://xmuxiaomo.github.io/categories/%E8%AF%97%E6%AD%8C/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[我们好像在哪儿见过]]></title>
@@ -734,29 +767,6 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="方法简介">方法简介</h2><p>在序列音乐作品中，基本序列除了使用<strong>原形序列</strong>材料外，也常根据音乐创作的需要做各种变形处理。最常用的方法有三种：<strong>移位、逆行</strong>和<strong>倒影逆行。</stron]]>
-    </summary>
-    
-      <category term="MAX/MSP" scheme="http://xmuxiaomo.github.io/tags/MAX-MSP/"/>
-    
-      <category term="算法作曲" scheme="http://xmuxiaomo.github.io/tags/%E7%AE%97%E6%B3%95%E4%BD%9C%E6%9B%B2/"/>
-    
-      <category term="技术分享" scheme="http://xmuxiaomo.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[MAX发声了！]]></title>
-    <link href="http://xmuxiaomo.github.io/2016/03/09/MAX-began-to-shout/"/>
-    <id>http://xmuxiaomo.github.io/2016/03/09/MAX-began-to-shout/</id>
-    <published>2016-03-08T16:37:52.000Z</published>
-    <updated>2016-03-14T03:35:50.000Z</updated>
-    <content type="html"><![CDATA[<p>在学习了《算法作曲理论与实践》两天后，MAX终于在Mac上发声了，有如刚降生的婴儿的第一声啼哭！</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e3f1e6a7837e04e81c665bacca78a6c0.png" alt=""></p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/fe248713e5010d911b90ce1d3e85c7c2.png" alt=""></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在学习了《算法作曲理论与实践》两天后，MAX终于在Mac上发声了，有如刚降生的婴儿的第一声啼哭！</p>
-<p><img src="http://qiniupicbed.qiniudn.com/upload/e3f1e6a7837e04e81c665bacca78a6c0.]]>
     </summary>
     
       <category term="MAX/MSP" scheme="http://xmuxiaomo.github.io/tags/MAX-MSP/"/>
