@@ -146,6 +146,649 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/11/三行情诗和音乐CD/">
+                三行情诗和音乐CD
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-11
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/个人随笔/">个人随笔</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/11/三行情诗和音乐CD/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/11/三行情诗和音乐CD/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>这几天，在狂啃Head First《深入浅出统计学》的同时，也有点小小的娱乐和放松活动。</p>
+<p>昨天看到学校图书馆和读书爱好者协会一起举办了个“三行情诗”比赛，要求小诗的每行里都要包括一本书的书名，并注上书名号，还可在诗后附上一段创作灵感描述。如果参赛获奖，一、二、三等奖分别是赠送小诗里的三、二、一本书作为奖品，如果无缘大奖，还有优秀作品奖，由图书馆和读者协会提供精美小礼品一份。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/11/三行情诗和音乐CD/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/诗/"> #诗 </a>
+          
+            <a href="/tags/钢琴/"> #钢琴 </a>
+          
+            <a href="/tags/音乐/"> #音乐 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/">
+                Getting and Cleaning Data: Quiz 1
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术分享/">技术分享</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/10/Getting-and-Cleaning-Data-Quiz-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Question_1">Question 1</h2><p>The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: </p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv</a></p>
+<p>and load the data into R. The code book, describing the variable names is here:</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf</a></p>
+<p>How many properties are worth $1,000,000 or more?</p>
+<h3 id="R_script:">R script:</h3><figure class="highlight nimrod"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Question 1:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!file.exists(<span class="string">"data"</span>)) &#123;</span><br><span class="line">        dir.create(<span class="string">"data"</span>)</span><br><span class="line">&#125;</span><br><span class="line">fileUrl &lt;- <span class="string">"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"</span></span><br><span class="line">download.file(fileUrl, destfile = <span class="string">"./data/06hid.csv"</span>, <span class="keyword">method</span> = <span class="string">"curl"</span>)</span><br><span class="line">dateDownloaded &lt;- date()</span><br><span class="line"></span><br><span class="line"><span class="type">HD</span> &lt;- read.csv(<span class="string">"./data/06hid.csv"</span>)</span><br><span class="line">sum(!<span class="keyword">is</span>.na(<span class="type">HD</span>[<span class="type">HD</span>$<span class="type">VAL</span> &gt;= <span class="number">24</span>, <span class="number">37</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="Result:">Result:</h3><p><img src="http://qiniupicbed.qiniudn.com/upload/8b81bcebf6bf74304d07c7e0317a5965.png" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/10/Getting-and-Cleaning-Data-Quiz-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/"> #R </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/07/狂啃统计学/">
+                狂啃统计学
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-07
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/个人随笔/">个人随笔</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/07/狂啃统计学/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/07/狂啃统计学/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>最近得了怪病，病症如下：手贱老在亚马逊上买书，隔三差五地买个几本，好多书都打开看，一起看，每本都读了没多少，一堆未完成事件堆积着，又想踏实学点R语言、数据分析和统计学知识。</p>
+<p>其实手贱买书这个毛病从本科就开始养成，那时症状稍微轻些，大概每个月买一两次，每次买一两本，买来平时就带着在自习室看，看完又再买新的有意思的书来看。</p>
+<p>没想到手贱的症状愈演愈烈，现在是一发不可收拾，一个月买N次，没事就用手机刷刷亚马逊的APP，看看有啥推荐给我的书，或者看看微信订阅号里“湛卢文化”或“读客”有啥新书推荐，然后又到亚马逊里接着刷。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/07/狂啃统计学/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/岁月/"> #岁月 </a>
+          
+            <a href="/tags/幸福/"> #幸福 </a>
+          
+            <a href="/tags/阅读/"> #阅读 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/07/早上看到的一条微信/">
+                早上看到的一条微信
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-06
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/个人随笔/">个人随笔</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/07/早上看到的一条微信/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/07/早上看到的一条微信/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>早上翻看手机朋友圈，看到传媒O2O的陈水歌发的一条状态，挺有意思的，内容如下。</p>
+<blockquote>
+<p>诸葛亮从来不问刘备，<br>为什么我们的箭那么少？<br>关羽从来不问刘备，<br>为什么我们的士兵那么少？<br>张飞从来不问刘备，<br>兵临城下我该怎么办？<br>于是——<br>有了草船借箭、<br>有了过五关斩六将、<br>有了据水断桥吓退曹兵……<br>赵子龙接到进攻军令时手上只有20个兵，<br>收获成果时已攻下了十座城池、<br>多了二万兵、增了三千匹马，<br>军令只是写着：攻下城池！<br>——如若万事俱备，你的价值何在？</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/07/早上看到的一条微信/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/岁月/"> #岁月 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/03/读《思维的乐趣》有感/">
+                读《思维的乐趣》有感
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-03
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/读书笔记/">读书笔记</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/03/读《思维的乐趣》有感/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/03/读《思维的乐趣》有感/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>下午坐在读书馆看书，安静凉爽。阅读了王小波的《思维的乐趣》一文，发现思维的乐趣实为人生的无上乐趣。</p>
+<p>静静地翻阅一本书，静静地思考，静静地感受窗外的天慢慢由白变黑。用阅读来度闲，真让人享受。</p>
+<p>不禁想起杜勃罗留波夫的话：“多么希望有这样的精力，能够遍读图书馆所有的藏书。多么希望能有这样的记忆力，能够记住所有读过的书。”但碌碌凡尘，白驹人生，琐务而外，能留给读书的余暇又有几何？古罗马哲人塞内加说得好：“Ars longa, vita brevis.（生也有涯，艺也无涯。）”我们也大可不必为此嗟叹，就从此刻开始阅读吧。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/03/读《思维的乐趣》有感/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文学/"> #文学 </a>
+          
+            <a href="/tags/王小波/"> #王小波 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/02/《沉默的大多数》读书笔记/">
+                《沉默的大多数》读书笔记
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-02
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/读书笔记/">读书笔记</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/02/《沉默的大多数》读书笔记/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/02/《沉默的大多数》读书笔记/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>今早开始阅读王小波的书——《沉默的大多数》，开篇便是与书同名的一篇文章，读后颇感作者话语之幽默、讽刺和犀利。文章充满文学色彩，内容详略得当，描述很有画面感，读来时而让我深陷沉思，时而差点在图书馆笑出声来。以下就简单摘记一些有意思的章节片段。我通常只喜欢摘记原文的内容，而把自己思考的过程放在大脑和内心经验了，不把它们写出来，因为写出来也许会违背或是误解了作者的原意，或是局限了其他看到这篇文章的读者的思维。</p>
+<hr>
+<p>（一）</p>
+<p>话语教给我们很多，但善恶还是可以自明。话语想要教给我们，人与人生来就不平等。在人间，尊卑有序是永恒的真理，但你也可以不听。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/02/《沉默的大多数》读书笔记/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文学/"> #文学 </a>
+          
+            <a href="/tags/王小波/"> #王小波 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/01/久违的琴声/">
+                久违的琴声
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-01
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/个人随笔/">个人随笔</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/01/久违的琴声/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/01/久违的琴声/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>前一阵子，YAMAHA电钢琴的电源线坏了，寄回厂家维修，有十多天没能听见美妙的钢琴声了。</p>
+<p>今天收到快递寄回来的修好了的电源线，迫不及待插上一试，电钢琴可以发声了。那一瞬间，耳朵接收到美妙的声音，就仿佛是一位久违的老朋友又重新回到身边，对我诉说着些什么，感觉亲切极了。</p>
+<p>傍晚，我怡然自得地弹起琴来。</p>
+<p>夕阳西照，琴声悠扬，古老的旋律在洒满阳光的寝室弥漫开来。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/01/久违的琴声/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/幸福/"> #幸福 </a>
+          
+            <a href="/tags/钢琴/"> #钢琴 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/01/无需粉饰的美/">
                 无需粉饰的美
               </a>
@@ -390,634 +1033,11 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/24/摘抄诗歌——《博物馆》/">
-                摘抄诗歌——《博物馆》
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-23
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/诗歌/">诗歌</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/24/摘抄诗歌——《博物馆》/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/24/摘抄诗歌——《博物馆》/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这里有餐盘而没有食欲。<br>有结婚戒指，但爱情至少已有三百年<br>未获回报。</p>
-<p>这里有一把扇子——粉红的脸蛋哪里去了？<br>这里有几把剑——愤怒哪里去了？<br>黄昏时分鲁特琴的弦音不再响起。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/24/摘抄诗歌——《博物馆》/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/辛波斯卡/"> #辛波斯卡 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/22/《培根人生论》读书笔记/">
-                《培根人生论》读书笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-22
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/读书笔记/">读书笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/22/《培根人生论》读书笔记/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/22/《培根人生论》读书笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="Chapter_2:_谈死亡">Chapter 2: 谈死亡</h3><p>就像曾经有位哲人说过的一样：死亡前受到的痛楚远远大于死亡本身。死亡前人们的意识都很迷糊，但因为周围的环境让人们对死亡感到十分恐惧，如身体逐渐冰冷、僵硬，耳边不时响起亲友的哭喊声等等。</p>
-<p>……</p>
-<p>当一个人认真地生活，认真地实现自己的价值，那么即使死亡之神突然来临，他也能泰然处之，因为对他来说，自己已经无怨无悔地生存了一次，死亡不过是生命结束的一个过程，他不过是把最后这个过程完成罢了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/22/《培根人生论》读书笔记/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/19/R-Programming-Assignment-3/">
-                R Programming Assignment 3: Hospital Quality
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-19
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术分享/">技术分享</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/19/R-Programming-Assignment-3/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/19/R-Programming-Assignment-3/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction">Introduction</h2><p>Download the file <a href="https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2FProgAssignment3-data.zip">ProgAssignment3-data.zip</a> file containing the data for Programming Assignment 3 from the Coursera web site. Unzip the file in a directory that will serve as your working directory. When you start up R make sure to change your working directory to the directory where you unzipped the data.</p>
-<p>The data for this assignment come from the Hospital Compare web site (<a href="http://hospitalcompare.hhs.gov">http://hospitalcompare.hhs.gov</a>) run by the U.S. Department of Health and Human Services. The purpose of the web site is to provide data and information about the quality of care at over 4,000 Medicare-certified hospitals in the U.S. This dataset essentially covers all major U.S. hospitals. This dataset is used for a variety of purposes, including determining whether hospitals should be fined for not providing high quality care to patients (see <a href="http://goo.gl/jAXFX">http://goo.gl/jAXFX</a> for some background on this particular topic).</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/19/R-Programming-Assignment-3/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/R/"> #R </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/18/生命遐想/">
-                生命遐想
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-18
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/个人随笔/">个人随笔</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/18/生命遐想/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/18/生命遐想/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>窗外的阳光透过玻璃窗照进寝室，我坐在桌前一边喝着咖啡，一边联想到一些好玩的念头。</p>
-<p>突然在想，人的出生真是很神奇的事情。我们的生命就是一次旅行，始发地是母亲的肚子里，终点是重归自然，游览的路线是全世界。</p>
-<p>全世界就好像是一个大大的游乐场，里面的设施星罗棋布，林林总总，任我们自由选择要去哪些地方，要玩什么项目。</p>
-<p>全世界就好像是一座历史悠久的金山，在我们来到之前已经有许许多多的人来挖掘过其中的宝藏。我们在前人来过之后，自己也来到这座金山细细体验一番，我们也想用自己的视角、自己的方式，发掘到属于自己的生命中独一无二的宝藏。在我们之后，还会有许许多多的人不断来到这座金山，开垦出自己的路。每个人发掘到的宝藏不同，因此生命形式和生活阅历也不尽相同。而正是因为这些不同，才造就了这个世界的多姿多彩和缤纷绚丽。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/18/生命遐想/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/岁月/"> #岁月 </a>
-          
-            <a href="/tags/旅行/"> #旅行 </a>
-          
-            <a href="/tags/时间/"> #时间 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/17/诗歌摘抄——《未进行的喜马拉雅之旅》/">
-                诗歌摘抄——《未进行的喜马拉雅之旅》
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-16
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/诗歌/">诗歌</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/17/诗歌摘抄——《未进行的喜马拉雅之旅》/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/17/诗歌摘抄——《未进行的喜马拉雅之旅》/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>噢，这些就是喜马拉雅了。<br>奔月的群峰。<br>永远静止的起跑<br>背对突然裂开的天空。<br>被刺穿的云漠。<br>向虚无的一击。<br>回声——白色的沉默，<br>寂静。</p>
-<p>雪人，我们这儿有星期三，<br>ABC，面包<br>还有二乘二等于四，<br>还有雪融。<br>玫瑰是红的，紫罗兰是蓝的，<br>糖是甜的，你也是。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/17/诗歌摘抄——《未进行的喜马拉雅之旅》/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/辛波斯卡/"> #辛波斯卡 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/15/烈日下的沉醉/">
-                烈日下的沉醉
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-15
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/个人随笔/">个人随笔</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/15/烈日下的沉醉/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/15/烈日下的沉醉/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>厦门的夏季，阳光充足。海水和蓝天被阳光照得透亮、干净。</p>
-<p>最近，我喜欢上了烈日，喜欢在烈日下汗流浃背，沉醉在烈日蒸腾过的空气中。</p>
-<p>不知道为什么，每当太阳高悬，我总有一股冲劲和热情，想从开着空调的室内走出去，晒晒太阳，散散步。</p>
-<p>阳光，温和也好，狂烈也罢，都让我感受到光明与希望，感受到生命蓬勃的朝气，感受到身体和心灵的自由与通畅。</p>
-<p>培根在他的《谈真理》一文中写道：“造物主很有智慧，他先为人类创造了光明，让人们感受光明带来的快乐，以及利用光明看清身边所有的事物，用明朗的心去接受和理解事物。另外，造物主还让人们享受智慧的光芒，让他们坚持不懈地追求这些智慧，让自己活得其所，并不断地在生活中探索属于自己的那缕光，然后根据光的指引走出一条属于自己的独一无二的路。”</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/烈日下的沉醉/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/热情/"> #热情 </a>
-          
-            <a href="/tags/生活/"> #生活 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/14/R-Programming-Assignment-2/">
-                R Programming Assignment 2: Lexical Scoping
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-14
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术分享/">技术分享</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/14/R-Programming-Assignment-2/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/14/R-Programming-Assignment-2/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="Introduction">Introduction</h2><p>This second programming assignment will require you to write an R function is able to cache potentially time-consuming computations. For example, taking the mean of a numeric vector is typically a fast operation. However, for a very long vector, it may take too long to compute the mean, especially if it has to be computed repeatedly (e.g. in a loop). If the contents of a vector are not changing, it may make sense to cache the value of the mean so that when we need it again, it can be looked up in the cache rather than recomputed. In this Programming Assignment will take advantage of the scoping rules of the R language and how they can be manipulated to preserve state inside of an R object.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/14/R-Programming-Assignment-2/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/R/"> #R </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/25/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/23/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/25/">&raquo;</a>
   </div>
 
 
@@ -1048,7 +1068,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">295</span>
+              <span class="site-state-item-count">302</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
